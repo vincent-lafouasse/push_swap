@@ -1,0 +1,9 @@
+build/
+.DS_Store
+.cache
+
+local*
+*.a
+**/exec*
+so_long
+Makefile.gen

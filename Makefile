@@ -36,4 +36,44 @@ run: all
 .PHONY: build
 build: $(NAME)
 
-$(NAME): 
+$(NAME): $(OBJS) $(LIBS)
+	$(CC) $(OBJS) $(LDFLAGS) $(LDLIBS) -o $@
+
+# Compilation
+$(BUILD_DIR)/%.c.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+$(LIBFT):
+	make -C $(LIBFT_MAKE_PATH)
+
+
+.PHONY: re
+re: fclean build
+
+.PHONY: clean
+clean:
+	$(RM) -r $(BUILD_DIR)
+	make clean -C $(LIBFT_MAKE_PATH)
+
+.PHONY: fclean
+fclean: clean
+	$(RM) $(NAME)
+	make fclean -C $(LIBFT_MAKE_PATH)
+
+# VERBOSITY = --verbose
+
+# LSP stuff, don't worry about it
+.PHONY: update
+update: fclean
+	mkdir -p $(BUILD_DIR)
+	bear $(VERBOSITY) --output $(BUILD_DIR)/compile_commands.json -- make build
+
+# aliases
+.PHONY: b c u r
+b: build
+c: clean
+u: update
+r: run
+
+-include $(DEPS)
