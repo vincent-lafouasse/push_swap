@@ -5,5 +5,4 @@ build/
 local*
 *.a
 **/exec*
-so_long
-Makefile.gen
+push_swap
