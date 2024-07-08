@@ -30,8 +30,8 @@ all: build
 	echo $(SRCS)
 
 .PHONY: run
-run: all
-	./a.out
+run: build
+	./$(NAME)
 
 .PHONY: build
 build: $(NAME)
