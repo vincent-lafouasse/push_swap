@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/07/08 16:12:23 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/07/08 16:12:54 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,4 @@ bool deque_is_empty(t_int_deque dq);
 size_t deque_size(t_int_deque dq);
 void deque_rotate_one(t_int_deque dq);
 void deque_rrotate_one(t_int_deque dq);
+void deque_clear(t_int_deque dq);
