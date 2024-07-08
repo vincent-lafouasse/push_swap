@@ -27,7 +27,6 @@ LIBS = $(LIBFT)
 
 .PHONY: all
 all: build
-	echo $(SRCS)
 
 .PHONY: run
 run: build
