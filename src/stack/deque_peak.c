@@ -2,12 +2,10 @@
 
 const t_int_list	*deque_peak_front(const t_int_deque dq)
 {
-	(void)dq;
-	return (0);
+	return (dq.head);
 }
 
 const t_int_list	*deque_peak_back(const t_int_deque dq)
 {
-	(void)dq;
-	return (0);
+	return (dq.tail);
 }
