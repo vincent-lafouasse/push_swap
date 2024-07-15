@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/07/15 14:58:23 by poss             ###   ########.fr       */
+/*   Updated: 2024/07/15 15:13:12 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_int_deque
 {
 	t_int_list				*head;
 	t_int_list				*tail;
+	size_t sz;
 }							t_int_deque;
 
 t_int_deque					deque_new(void);
