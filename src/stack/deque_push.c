@@ -30,14 +30,22 @@ void deque_push_back_link(t_int_deque *dq, t_int_list *link)
 
 bool	deque_push_front(t_int_deque *dq, int val)
 {
-	(void)dq;
-	(void)val;
+	t_int_list* link;
+
+	link = list_new(val);
+	if (!link)
+		return false;
+	deque_push_front_link(dq, link);
 	return (true);
 }
 
 bool	deque_push_back(t_int_deque *dq, int val)
 {
-	(void)dq;
-	(void)val;
+	t_int_list* link;
+
+	link = list_new(val);
+	if (!link)
+		return false;
+	deque_push_back_link(dq, link);
 	return (true);
 }
