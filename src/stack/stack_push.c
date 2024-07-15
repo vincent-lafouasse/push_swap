@@ -1,5 +1,5 @@
 #include "deque/t_int_deque.h"
-#include "t_stack.h"
+#include "t_stacks.h"
 
 static void	move_top(t_int_deque *from, t_int_deque *to);
 

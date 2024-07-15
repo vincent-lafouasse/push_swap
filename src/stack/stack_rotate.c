@@ -1,4 +1,4 @@
-#include "t_stack.h"
+#include "t_stacks.h"
 
 void	rotate_a(t_stacks *stacks)
 {
