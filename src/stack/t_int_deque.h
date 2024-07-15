@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/07/15 12:22:47 by poss             ###   ########.fr       */
+/*   Updated: 2024/07/15 12:43:27 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ struct						s_int_list
 	t_int_list				*next;
 	t_int_list				*prev;
 };
+
+t_int_list* list_new(int val);
 
 typedef struct s_int_deque
 {
