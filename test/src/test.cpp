@@ -87,3 +87,43 @@ TEST(Deque, PushBackLink)
     ASSERT_TRUE(dq.tail->val == 69);
     ASSERT_TRUE(dq.sz == 3);
 }
+
+TEST(Deque, PushFront)
+{
+    t_int_deque dq = deque_new();
+
+    deque_push_front(&dq, 420);
+    ASSERT_TRUE(dq.head->val == 420);
+    ASSERT_TRUE(dq.tail->val == 420);
+    ASSERT_TRUE(dq.sz == 1);
+
+    deque_push_front(&dq, -1);
+    ASSERT_TRUE(dq.head->val == -1);
+    ASSERT_TRUE(dq.tail->val == 420);
+    ASSERT_TRUE(dq.sz == 2);
+
+    deque_push_front(&dq, 69);
+    ASSERT_TRUE(dq.head->val == 69);
+    ASSERT_TRUE(dq.tail->val == 420);
+    ASSERT_TRUE(dq.sz == 3);
+}
+
+TEST(Deque, PushBack)
+{
+    t_int_deque dq = deque_new();
+
+    deque_push_back(&dq, 0);
+    ASSERT_TRUE(dq.head->val == 0);
+    ASSERT_TRUE(dq.tail->val == 0);
+    ASSERT_TRUE(dq.sz == 1);
+
+    deque_push_back(&dq, 420);
+    ASSERT_TRUE(dq.head->val == 0);
+    ASSERT_TRUE(dq.tail->val == 420);
+    ASSERT_TRUE(dq.sz == 2);
+
+    deque_push_back(&dq, 69);
+    ASSERT_TRUE(dq.head->val == 0);
+    ASSERT_TRUE(dq.tail->val == 69);
+    ASSERT_TRUE(dq.sz == 3);
+}
