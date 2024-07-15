@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/07/15 12:43:27 by poss             ###   ########.fr       */
+/*   Updated: 2024/07/15 12:51:13 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ typedef struct s_int_deque
 }							t_int_deque;
 
 t_int_deque					deque_new(void);
-int							deque_peak_front(const t_int_deque dq);
-int							deque_peak_back(const t_int_deque dq);
-int							deque_pop_front(t_int_deque *dq);
-int							deque_pop_back(t_int_deque *dq);
+const t_int_list*			deque_peak_back(const t_int_deque dq);
+const t_int_list*			deque_peak_front(const t_int_deque dq);
+t_int_list*					deque_pop_front(t_int_deque *dq);
+t_int_list*					deque_pop_back(t_int_deque *dq);
 bool						deque_push_front(t_int_deque *dq, int val);
 bool						deque_push_back(t_int_deque *dq, int val);
 bool						deque_is_empty(const t_int_deque dq);
