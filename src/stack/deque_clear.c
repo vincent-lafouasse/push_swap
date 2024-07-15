@@ -15,4 +15,5 @@ void	deque_clear(t_int_deque *dq)
 	}
 	dq->head = NULL;
 	dq->tail = NULL;
+	dq->sz = 0;
 }
