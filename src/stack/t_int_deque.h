@@ -29,7 +29,7 @@ typedef struct s_int_deque
 {
 	t_int_list				*head;
 	t_int_list				*tail;
-	size_t sz;
+	size_t					sz;
 }							t_int_deque;
 
 t_int_deque					deque_new(void);
