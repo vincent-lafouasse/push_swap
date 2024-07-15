@@ -1,11 +1,10 @@
-#include "t_int_deque.h"
-
-#include <stdlib.h>
 #include "libft/string.h"
+#include "t_int_deque.h"
+#include <stdlib.h>
 
 t_int_list	*list_new(int val)
 {
-	t_int_list* out;
+	t_int_list	*out;
 
 	out = malloc(sizeof(*out));
 	if (out == NULL)
@@ -13,5 +12,5 @@ t_int_list	*list_new(int val)
 	ft_memcpy(out, &val, sizeof(val));
 	out->next = NULL;
 	out->prev = NULL;
-	return out;
+	return (out);
 }
