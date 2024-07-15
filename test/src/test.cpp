@@ -127,3 +127,19 @@ TEST(Deque, PushBack)
     ASSERT_TRUE(dq.tail->val == 69);
     ASSERT_TRUE(dq.sz == 3);
 }
+
+TEST(Deque, Clear)
+{
+    t_int_deque dq = deque_new();
+    ASSERT_TRUE(deque_is_empty(dq));
+
+    deque_push_back(&dq, 69);
+    deque_push_back(&dq, 69);
+    deque_push_back(&dq, 69);
+    deque_push_back(&dq, 69);
+    deque_push_back(&dq, 69);
+    ASSERT_FALSE(deque_is_empty(dq));
+
+    deque_clear(&dq);
+    ASSERT_TRUE(deque_is_empty(dq));
+}
