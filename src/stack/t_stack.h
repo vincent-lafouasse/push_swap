@@ -14,8 +14,9 @@
 
 #include "t_int_deque.h"
 
-typedef struct s_stacks t_stacks;
-struct s_stacks {
-	t_int_deque a;
-	t_int_deque b;
+typedef struct s_stacks	t_stacks;
+struct					s_stacks
+{
+	t_int_deque			a;
+	t_int_deque			b;
 };

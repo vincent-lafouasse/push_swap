@@ -2,7 +2,7 @@
 
 int	main(void)
 {
-	t_stacks stacks;
+	t_stacks	stacks;
 
 	(void)stacks;
 }
