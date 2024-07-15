@@ -69,7 +69,7 @@ update: fclean
 	bear $(VERBOSITY) --output $(BUILD_DIR)/compile_commands.json -- make build
 
 .PHONY: test
-test:
+test: $(LIBFT)
 	cmake -S test -B test/build
 	cmake --build test/build
 	./test/build/deque_test
