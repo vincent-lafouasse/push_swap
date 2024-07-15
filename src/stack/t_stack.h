@@ -14,4 +14,4 @@
 
 #include "t_int_deque.h"
 
-typedef t_int_deque t_stack;
+typedef t_int_deque	t_stack;

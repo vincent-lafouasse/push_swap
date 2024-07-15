@@ -1,7 +1,7 @@
-#include <stdio.h>
 #include "stack/t_stack.h"
+#include <stdio.h>
 
-int main(void)
+int	main(void)
 {
-	t_stack cool_stack;
+	t_stack	cool_stack;
 }

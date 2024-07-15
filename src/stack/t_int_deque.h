@@ -23,7 +23,7 @@ struct						s_int_list
 	t_int_list				*prev;
 };
 
-t_int_list* list_new(int val);
+t_int_list					*list_new(int val);
 
 typedef struct s_int_deque
 {
@@ -32,14 +32,14 @@ typedef struct s_int_deque
 }							t_int_deque;
 
 t_int_deque					deque_new(void);
-const t_int_list*			deque_peak_back(const t_int_deque dq);
-const t_int_list*			deque_peak_front(const t_int_deque dq);
-t_int_list*					deque_pop_front(t_int_deque *dq);
-t_int_list*					deque_pop_back(t_int_deque *dq);
+const t_int_list			*deque_peak_back(const t_int_deque dq);
+const t_int_list			*deque_peak_front(const t_int_deque dq);
+t_int_list					*deque_pop_front(t_int_deque *dq);
+t_int_list					*deque_pop_back(t_int_deque *dq);
 bool						deque_push_front(t_int_deque *dq, int val);
 bool						deque_push_back(t_int_deque *dq, int val);
 bool						deque_is_empty(const t_int_deque dq);
 size_t						deque_size(const t_int_deque dq);
-void						deque_rotate_one(t_int_deque* dq);
-void						deque_rrotate_one(t_int_deque* dq);
-void						deque_clear(t_int_deque* dq);
+void						deque_rotate_one(t_int_deque *dq);
+void						deque_rrotate_one(t_int_deque *dq);
+void						deque_clear(t_int_deque *dq);
