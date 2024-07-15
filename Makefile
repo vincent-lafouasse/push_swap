@@ -68,6 +68,12 @@ update: fclean
 	mkdir -p $(BUILD_DIR)
 	bear $(VERBOSITY) --output $(BUILD_DIR)/compile_commands.json -- make build
 
+.PHONY: test
+test:
+	cmake -S test -B test/build
+	cmake --build test/build
+	./test/build/deque_test
+
 # aliases
 .PHONY: b c u r
 b: build
