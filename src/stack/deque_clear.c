@@ -13,4 +13,6 @@ void	deque_clear(t_int_deque *dq)
 		free(current);
 		current = buffer;
 	}
+	dq->head = NULL;
+	dq->tail = NULL;
 }
