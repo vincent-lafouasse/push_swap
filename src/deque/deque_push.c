@@ -13,6 +13,7 @@ void	deque_push_front_link(t_int_deque *dq, t_int_list *link)
 	link->next = dq->head;
 	dq->head->prev = link;
 	dq->head = link;
+	dq->head->prev = NULL;
 	dq->sz++;
 }
 
@@ -29,6 +30,7 @@ void	deque_push_back_link(t_int_deque *dq, t_int_list *link)
 	link->prev = dq->tail;
 	dq->tail->next = link;
 	dq->tail = link;
+	dq->tail->next = NULL;
 	dq->sz++;
 }
 
