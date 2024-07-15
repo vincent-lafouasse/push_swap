@@ -75,10 +75,11 @@ test:
 	./test/build/deque_test
 
 # aliases
-.PHONY: b c u r
+.PHONY: b c u r t
 b: build
 c: clean
 u: update
 r: run
+t: test
 
 -include $(DEPS)
