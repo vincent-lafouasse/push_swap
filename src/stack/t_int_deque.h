@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/07/15 12:51:13 by poss             ###   ########.fr       */
+/*   Updated: 2024/07/15 13:59:51 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ t_int_list					*deque_pop_front(t_int_deque *dq);
 t_int_list					*deque_pop_back(t_int_deque *dq);
 bool						deque_push_front(t_int_deque *dq, int val);
 bool						deque_push_back(t_int_deque *dq, int val);
+void						deque_push_front_link(t_int_deque *dq,
+								t_int_list *link);
+void						deque_push_back_link(t_int_deque *dq,
+								t_int_list *link);
 bool						deque_is_empty(const t_int_deque dq);
 size_t						deque_size(const t_int_deque dq);
 void						deque_rotate_one(t_int_deque *dq);
