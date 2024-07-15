@@ -2,7 +2,7 @@
 
 extern "C"
 {
-#include "t_int_deque.h"
+#include "deque/t_int_deque.h"
 };
 
 TEST(Deque, New)
