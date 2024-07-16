@@ -14,13 +14,7 @@ set_target_properties(libft PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/../lib/libft/include"
 )
 
-add_executable(deque
-  src/deque/deque_test.cpp
-  src/deque/main.cpp
-
-  src/common/custom_assertions.h
-  src/common/custom_assertions.cpp
-
+set(deque_src
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_clear.c
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_new.c
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_peek.c
@@ -32,8 +26,30 @@ add_executable(deque
   ${CMAKE_SOURCE_DIR}/../src/deque/t_int_deque.h
 )
 
-target_include_directories(deque PUBLIC
+set(stack_src
+  ${CMAKE_SOURCE_DIR}/../src/stack/stack_push.c
+  ${CMAKE_SOURCE_DIR}/../src/stack/stack_rotate.c
+  ${CMAKE_SOURCE_DIR}/../src/stack/stack_rrotate.c
+  ${CMAKE_SOURCE_DIR}/../src/stack/stack_swap.c
+  ${CMAKE_SOURCE_DIR}/../src/stack/t_stacks.h
+)
+
+set(tested_include_dir
   ${CMAKE_SOURCE_DIR}/../src
+)
+
+add_executable(deque
+  src/deque/deque_test.cpp
+  src/deque/main.cpp
+
+  src/common/custom_assertions.h
+  src/common/custom_assertions.cpp
+
+  ${deque_src}
+)
+
+target_include_directories(deque PUBLIC
+  ${tested_include_dir}
   src
 )
 target_link_libraries(deque
@@ -48,25 +64,13 @@ add_executable(stack
   src/common/custom_assertions.h
   src/common/custom_assertions.cpp
 
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_clear.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_new.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_peek.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_pop.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_push.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_rotate.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_size.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/list_new.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/t_int_deque.h
+  ${deque_src}
+  ${stack_src}
 
-  ${CMAKE_SOURCE_DIR}/../src/stack/stack_push.c
-  ${CMAKE_SOURCE_DIR}/../src/stack/stack_rotate.c
-  ${CMAKE_SOURCE_DIR}/../src/stack/stack_rrotate.c
-  ${CMAKE_SOURCE_DIR}/../src/stack/stack_swap.c
-  ${CMAKE_SOURCE_DIR}/../src/stack/t_stacks.h
 )
 
 target_include_directories(stack PUBLIC
-  ${CMAKE_SOURCE_DIR}/../src
+  ${tested_include_dir}
   src
 )
 target_link_libraries(stack
