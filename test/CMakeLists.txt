@@ -78,3 +78,8 @@ target_link_libraries(stack
   libft
 )
 
+include(CTest)
+add_test(NAME DequeTest
+         COMMAND deque)
+add_test(NAME StackTest
+         COMMAND stack)
