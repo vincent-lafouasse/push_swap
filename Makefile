@@ -72,7 +72,7 @@ update: fclean
 test: $(LIBFT)
 	cmake -S test -B test/build
 	cmake --build test/build
-	cd test/build && ctest
+	cd test/build && GTEST_COLOR=1 ctest -V
 
 # aliases
 .PHONY: b c u r t
