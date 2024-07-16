@@ -66,6 +66,6 @@ TEST(Stack, Swap)
     Vector expected_a{2, 1, 3, 4};
     Vector expected_b{5, 6, 7, 8};
 
-    //assert_deque_eq(stacks.a, expected_a);
+    // assert_deque_eq(stacks.a, expected_a);
     assert_deque_eq(stacks.b, expected_b);
 }
