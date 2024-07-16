@@ -74,6 +74,11 @@ test: $(LIBFT)
 	cmake --build test/build
 	cd test/build && GTEST_COLOR=1 ctest -V
 
+.PHONY: check
+check:
+	cppcheck --language=c $(SRC_DIR)
+	# norminette $(SRC_DIR)
+
 # aliases
 .PHONY: b c u r t
 b: build
