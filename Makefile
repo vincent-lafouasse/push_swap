@@ -74,9 +74,12 @@ test: $(LIBFT)
 	cmake --build test/build
 	cd test/build && GTEST_COLOR=1 ctest -V
 
+CPPCHECKFLAGS  = --language=c
+CPPCHECKFLAGS += --cppcheck-build-dir=build
+CPPCHECKFLAGS += --project=build/compile_commands.json
 .PHONY: check
 check:
-	cppcheck --language=c $(SRC_DIR)
+	cppcheck $(CPPCHECKFLAGS)
 	# norminette $(SRC_DIR)
 
 # aliases
