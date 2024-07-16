@@ -18,6 +18,9 @@ add_executable(deque_test
   src/test.cpp
   src/main.cpp
 
+  src/custom_assertions.h
+  src/custon_assertions.cpp
+
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_clear.c
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_new.c
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_peek.c
