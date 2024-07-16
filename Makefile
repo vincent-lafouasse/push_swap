@@ -78,7 +78,7 @@ CPPCHECKFLAGS  = --language=c
 CPPCHECKFLAGS += --cppcheck-build-dir=build
 CPPCHECKFLAGS += --project=build/compile_commands.json
 .PHONY: check
-check:
+check: update
 	cppcheck $(CPPCHECKFLAGS)
 	# norminette $(SRC_DIR)
 
