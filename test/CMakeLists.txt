@@ -15,6 +15,7 @@ set_target_properties(libft PROPERTIES
 )
 
 add_executable(test
+  src/stack_test.cpp
   src/deque_test.cpp
   src/main.cpp
 
