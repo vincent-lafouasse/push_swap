@@ -79,6 +79,8 @@ target_link_libraries(stack
 )
 
 include(CTest)
+enable_testing()
+
 add_test(NAME DequeTest
          COMMAND deque)
 add_test(NAME StackTest
