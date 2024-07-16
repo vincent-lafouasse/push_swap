@@ -1,7 +1,7 @@
 #include <iostream>
 #include "gtest/gtest.h"
 
-#include "custom_assertions.h"
+#include "common/custom_assertions.h"
 
 extern "C"
 {

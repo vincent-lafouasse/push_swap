@@ -14,13 +14,39 @@ set_target_properties(libft PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/../lib/libft/include"
 )
 
-add_executable(test
-  src/stack_test.cpp
-  src/deque_test.cpp
-  src/main.cpp
+add_executable(deque
+  src/deque/deque_test.cpp
+  src/deque/main.cpp
 
-  src/custom_assertions.h
-  src/custom_assertions.cpp
+  src/common/custom_assertions.h
+  src/common/custom_assertions.cpp
+
+  ${CMAKE_SOURCE_DIR}/../src/deque/deque_clear.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/deque_new.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/deque_peek.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/deque_pop.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/deque_push.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/deque_rotate.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/deque_size.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/list_new.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/t_int_deque.h
+)
+
+target_include_directories(deque PUBLIC
+  ${CMAKE_SOURCE_DIR}/../src
+  src
+)
+target_link_libraries(deque
+  libgtest
+  libft
+)
+
+add_executable(stack
+  src/stack/stack_test.cpp
+  src/stack/main.cpp
+
+  src/common/custom_assertions.h
+  src/common/custom_assertions.cpp
 
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_clear.c
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_new.c
@@ -39,10 +65,11 @@ add_executable(test
   ${CMAKE_SOURCE_DIR}/../src/stack/t_stacks.h
 )
 
-target_include_directories(test PUBLIC
+target_include_directories(stack PUBLIC
   ${CMAKE_SOURCE_DIR}/../src
+  src
 )
-target_link_libraries(test
+target_link_libraries(stack
   libgtest
   libft
 )
