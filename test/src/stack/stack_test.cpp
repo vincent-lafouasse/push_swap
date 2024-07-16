@@ -40,8 +40,8 @@ void log_deque(const t_int_deque dq)
 
 TEST(Stack, Swap)
 {
-    Vector a{1, 2, 3, 4};
-    Vector b{5, 6, 7, 8};
+    const Vector a{1, 2, 3, 4};
+    const Vector b{5, 6, 7, 8};
     t_stacks stacks = {.a = deque_from_vec(a), .b = deque_from_vec(b)};
 
     swap_a(&stacks);
@@ -53,6 +53,21 @@ TEST(Stack, Swap)
     assert_deque_eq(stacks.b, {6, 5, 7, 8});
 
     swap_both(&stacks);
+    assert_deque_eq(stacks.a, a);
+    assert_deque_eq(stacks.b, b);
+}
+
+TEST(Stack, SwapNoOp)
+{
+    const Vector a{69};
+    const Vector b{};
+    t_stacks stacks = {.a = deque_from_vec(a), .b = deque_from_vec(b)};
+
+    swap_a(&stacks);
+    assert_deque_eq(stacks.a, a);
+    assert_deque_eq(stacks.b, b);
+
+    swap_b(&stacks);
     assert_deque_eq(stacks.a, a);
     assert_deque_eq(stacks.b, b);
 }
