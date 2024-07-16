@@ -4,9 +4,8 @@
 
 void assert_deque_eq(const t_int_deque dq, const std::vector<int>& expected)
 {
-    EXPECT_EQ(dq.sz, expected.size())
-        << "Error, invalid size. expected size " << expected.size() << " was "
-        << dq.sz;
+    EXPECT_EQ(dq.sz, expected.size()) << "Error, invalid size. expected size "
+                                      << expected.size() << " was " << dq.sz;
 
     t_int_list* current = dq.head;
     size_t i{};
