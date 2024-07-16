@@ -45,9 +45,10 @@ TEST(Stack, Swap)
     t_stacks stacks = {.a = deque_from_vec(a), .b = deque_from_vec(b)};
 
     swap_a(&stacks);
-    Vector expected_a{2, 1, 3, 4};
-    Vector expected_b{5, 6, 7, 8};
+    assert_deque_eq(stacks.a, {2, 1, 3, 4});
+    assert_deque_eq(stacks.b, {5, 6, 7, 8});
 
-    // assert_deque_eq(stacks.a, expected_a);
-    assert_deque_eq(stacks.b, expected_b);
+    swap_b(&stacks);
+    assert_deque_eq(stacks.a, {2, 1, 3, 4});
+    assert_deque_eq(stacks.b, {6, 5, 7, 8});
 }
