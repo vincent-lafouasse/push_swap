@@ -57,10 +57,22 @@ TEST(Deque, Pop)
     deque_push_back(&dq, 1);
     deque_push_back(&dq, 2);
     deque_push_back(&dq, 3);
-
     assert_deque_eq(dq, {0, 1, 2, 3});
+
     ASSERT_TRUE(deque_pop_front(&dq)->val == 0);
     assert_deque_eq(dq, {1, 2, 3});
+
+    ASSERT_TRUE(deque_pop_back(&dq)->val == 3);
+    assert_deque_eq(dq, {1, 2});
+
+    ASSERT_TRUE(deque_pop_front(&dq)->val == 1);
+    assert_deque_eq(dq, {2, 3});
+
+    ASSERT_TRUE(deque_pop_back(&dq)->val == 3);
+    assert_deque_eq(dq, {2});
+
+    ASSERT_TRUE(deque_pop_front(&dq)->val == 2);
+    ASSERT_TRUE(deque_is_empty(dq));
 }
 
 TEST(Deque, PushFrontLink)
