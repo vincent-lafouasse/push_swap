@@ -10,21 +10,16 @@ extern "C"
 
 typedef std::vector<int> Vector;
 
-struct Deque
+t_int_deque deque_from_vec(const Vector& v)
 {
-    t_int_deque dq;
-
-    static t_int_deque from_vec(const Vector& v)
+    t_int_deque dq = deque_new();
+    for (int e : v)
     {
-        t_int_deque dq = deque_new();
-        for (int e : v)
-        {
-            deque_push_back(&dq, e);
-        }
-        assert_deque_eq(dq, v);
-        return dq;
+        deque_push_back(&dq, e);
     }
-};
+    assert_deque_eq(dq, v);
+    return dq;
+}
 
 void log_deque(const t_int_deque dq)
 {
@@ -43,24 +38,11 @@ void log_deque(const t_int_deque dq)
     std::cout << std::endl;
 }
 
-struct Stacks
-{
-    t_stacks s;
-
-    static t_stacks from_vecs(const Vector& a, const Vector& b)
-    {
-        t_stacks s;
-        s.a = Deque::from_vec(a);
-        s.b = Deque::from_vec(b);
-        return s;
-    }
-};
-
 TEST(Stack, Swap)
 {
     Vector a{1, 2, 3, 4};
     Vector b{5, 6, 7, 8};
-    t_stacks stacks = Stacks::from_vecs(a, b);
+    t_stacks stacks = {.a = deque_from_vec(a), .b = deque_from_vec(b)};
 
     swap_a(&stacks);
     Vector expected_a{2, 1, 3, 4};
