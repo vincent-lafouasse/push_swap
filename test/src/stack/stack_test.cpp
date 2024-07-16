@@ -51,4 +51,8 @@ TEST(Stack, Swap)
     swap_b(&stacks);
     assert_deque_eq(stacks.a, {2, 1, 3, 4});
     assert_deque_eq(stacks.b, {6, 5, 7, 8});
+
+    swap_both(&stacks);
+    assert_deque_eq(stacks.a, a);
+    assert_deque_eq(stacks.b, b);
 }
