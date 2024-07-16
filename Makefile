@@ -72,7 +72,7 @@ update: fclean
 test: $(LIBFT)
 	cmake -S test -B test/build
 	cmake --build test/build
-	./test/build/test
+	make test -C test/build
 
 # aliases
 .PHONY: b c u r t
