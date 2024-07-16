@@ -50,6 +50,19 @@ TEST(Deque, PopEmpty)
     ASSERT_TRUE(tail == nullptr);
 }
 
+TEST(Deque, Pop)
+{
+    t_int_deque dq = deque_new();
+    deque_push_back(&dq, 0);
+    deque_push_back(&dq, 1);
+    deque_push_back(&dq, 2);
+    deque_push_back(&dq, 3);
+
+    assert_deque_eq(dq, {0, 1, 2, 3});
+    ASSERT_TRUE(deque_pop_front(&dq)->val == 0);
+    assert_deque_eq(dq, {1, 2, 3});
+}
+
 TEST(Deque, PushFrontLink)
 {
     t_int_deque dq = deque_new();
