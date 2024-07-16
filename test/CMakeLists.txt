@@ -14,7 +14,7 @@ set_target_properties(libft PROPERTIES
   INTERFACE_INCLUDE_DIRECTORIES "${CMAKE_SOURCE_DIR}/../lib/libft/include"
 )
 
-add_executable(deque_test
+add_executable(test
   src/test.cpp
   src/main.cpp
 
@@ -30,12 +30,18 @@ add_executable(deque_test
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_size.c
   ${CMAKE_SOURCE_DIR}/../src/deque/list_new.c
   ${CMAKE_SOURCE_DIR}/../src/deque/t_int_deque.h
+
+  ${CMAKE_SOURCE_DIR}/../src/stack/stack_push.c
+  ${CMAKE_SOURCE_DIR}/../src/stack/stack_rotate.c
+  ${CMAKE_SOURCE_DIR}/../src/stack/stack_rrotate.c
+  ${CMAKE_SOURCE_DIR}/../src/stack/stack_swap.c
+  ${CMAKE_SOURCE_DIR}/../src/stack/t_stacks.h
 )
 
-target_include_directories(deque_test PUBLIC
+target_include_directories(test PUBLIC
   ${CMAKE_SOURCE_DIR}/../src
 )
-target_link_libraries(deque_test
+target_link_libraries(test
   libgtest
   libft
 )

@@ -72,7 +72,7 @@ update: fclean
 test: $(LIBFT)
 	cmake -S test -B test/build
 	cmake --build test/build
-	./test/build/deque_test
+	./test/build/test
 
 # aliases
 .PHONY: b c u r t
