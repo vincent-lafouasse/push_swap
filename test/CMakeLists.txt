@@ -15,7 +15,7 @@ set_target_properties(libft PROPERTIES
 )
 
 add_executable(test
-  src/test.cpp
+  src/deque_test.cpp
   src/main.cpp
 
   src/custom_assertions.h
