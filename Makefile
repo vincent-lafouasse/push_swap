@@ -72,7 +72,13 @@ update: fclean
 test: $(LIBFT)
 	cmake -S test -B test/build
 	cmake --build test/build
-	cd test/build && GTEST_COLOR=1 ctest -V
+	GTEST_COLOR=1 ctest --test-dir test/build
+
+.PHONY: vtest
+vtest: $(LIBFT)
+	cmake -S test -B test/build
+	cmake --build test/build
+	GTEST_COLOR=1 ctest --test-dir test/build -V
 
 CPPCHECKFLAGS  = --language=c
 CPPCHECKFLAGS += --cppcheck-build-dir=build
