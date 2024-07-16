@@ -20,7 +20,7 @@ add_executable(test
   src/main.cpp
 
   src/custom_assertions.h
-  src/custon_assertions.cpp
+  src/custom_assertions.cpp
 
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_clear.c
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_new.c
