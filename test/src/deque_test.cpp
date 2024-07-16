@@ -66,9 +66,6 @@ TEST(Deque, Pop)
     assert_deque_eq(dq, {1, 2});
 
     ASSERT_TRUE(deque_pop_front(&dq)->val == 1);
-    assert_deque_eq(dq, {2, 3});
-
-    ASSERT_TRUE(deque_pop_back(&dq)->val == 3);
     assert_deque_eq(dq, {2});
 
     ASSERT_TRUE(deque_pop_front(&dq)->val == 2);
