@@ -140,3 +140,14 @@ TEST(Stack, RotateNoOp)
     assert_deque_eq(stacks.a, a);
     assert_deque_eq(stacks.b, b);
 }
+
+TEST(Stack, Rotate)
+{
+    const Vector a{1, 2, 3};
+    const Vector b{-1, -2, -3};
+    t_stacks stacks = {.a = deque_from_vec(a), .b = deque_from_vec(b)};
+
+    rotate_a(&stacks);
+    assert_deque_eq(stacks.a, {2, 3, 1});
+    assert_deque_eq(stacks.b, {-1, -2, -3});
+}
