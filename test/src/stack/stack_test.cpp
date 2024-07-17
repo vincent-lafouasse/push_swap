@@ -107,4 +107,13 @@ TEST(Stack, Push)
     push_a(&stacks);
     assert_deque_eq(stacks.a, {3, 2, 1});
     assert_deque_eq(stacks.b, {});
+
+    push_b(&stacks);
+    push_b(&stacks);
+    push_b(&stacks);
+    push_b(&stacks);
+    push_b(&stacks);
+    push_b(&stacks);
+    assert_deque_eq(stacks.a, a);
+    assert_deque_eq(stacks.b, b);
 }
