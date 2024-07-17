@@ -42,6 +42,16 @@ void log_deque(const t_int_deque dq, const char* name)
     std::cout << std::endl;
 }
 
+void log_a(const t_stacks s)
+{
+    log_deque(s.a, "a");
+}
+
+void log_b(const t_stacks s)
+{
+    log_deque(s.b, "b");
+}
+
 TEST(Stack, Swap)
 {
     const Vector a{1, 2, 3, 4};
@@ -81,15 +91,10 @@ TEST(Stack, Push)
     const Vector a{};
     const Vector b{1, 2, 3};
     t_stacks stacks = {.a = deque_from_vec(a), .b = deque_from_vec(b)};
-    log_deque(stacks.a, "a");
-    log_deque(stacks.b, "b");
 
     push_a(&stacks);
-    log_deque(stacks.a, "a");
-    log_deque(stacks.b, "b");
     assert_deque_eq(stacks.a, {1});
     assert_deque_eq(stacks.b, {2, 3});
-    FAIL();
 
     push_a(&stacks);
     assert_deque_eq(stacks.a, {2, 1});
