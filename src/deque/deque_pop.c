@@ -11,12 +11,16 @@ t_int_list	*deque_pop_front(t_int_deque *dq)
 		out = dq->head;
 		dq->head = dq->tail = NULL;
 		dq->sz = 0;
-		return (out);
 	}
-	out = dq->head;
-	dq->head = out->next;
-	dq->head->prev = NULL;
-	dq->sz--;
+	else
+	{
+		out = dq->head;
+		dq->head = out->next;
+		dq->head->prev = NULL;
+		dq->sz--;
+	}
+	out->next = NULL;
+	out->prev = NULL;
 	return (out);
 }
 
@@ -31,11 +35,15 @@ t_int_list	*deque_pop_back(t_int_deque *dq)
 		out = dq->tail;
 		dq->head = dq->tail = NULL;
 		dq->sz = 0;
-		return (out);
 	}
-	out = dq->tail;
-	dq->tail = out->prev;
-	dq->tail->next = NULL;
-	dq->sz--;
+	else
+	{
+		out = dq->tail;
+		dq->tail = out->prev;
+		dq->tail->next = NULL;
+		dq->sz--;
+	}
+	out->next = NULL;
+	out->prev = NULL;
 	return (out);
 }
