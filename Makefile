@@ -89,11 +89,12 @@ check: update
 	# norminette $(SRC_DIR)
 
 # aliases
-.PHONY: b c u r t
+.PHONY: b c u r t vt
 b: build
 c: clean
 u: update
 r: run
 t: test
+vt: vtest
 
 -include $(DEPS)
