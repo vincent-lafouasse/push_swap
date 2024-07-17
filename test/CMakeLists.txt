@@ -22,6 +22,7 @@ set(deque_src
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_push.c
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_rotate.c
   ${CMAKE_SOURCE_DIR}/../src/deque/deque_size.c
+  ${CMAKE_SOURCE_DIR}/../src/deque/deque_deep_copy.c
   ${CMAKE_SOURCE_DIR}/../src/deque/list_new.c
   ${CMAKE_SOURCE_DIR}/../src/deque/t_int_deque.h
 )

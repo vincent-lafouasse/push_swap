@@ -1,11 +1,25 @@
 #include "gtest/gtest.h"
 
+#include <vector>
 #include "common/custom_assertions.h"
 
 extern "C"
 {
 #include "deque/t_int_deque.h"
 };
+
+typedef std::vector<int> Vector;
+
+t_int_deque deque_from_vec(const Vector& v)
+{
+    t_int_deque dq = deque_new();
+    for (int e : v)
+    {
+        deque_push_back(&dq, e);
+    }
+    assert_deque_eq(dq, v);
+    return dq;
+}
 
 TEST(Node, New)
 {
@@ -143,4 +157,16 @@ TEST(Deque, Clear)
 
     deque_clear(&dq);
     ASSERT_TRUE(deque_is_empty(dq));
+}
+
+TEST(Deque, DeepCopy)
+{
+    Vector src_vec = {1, 2, 3, 4, 5};
+    t_int_deque src_dq = deque_from_vec(src_vec);
+    assert_deque_eq(src_dq, src_vec);
+
+    t_int_deque copy = deque_deep_copy(src_dq);
+    ASSERT_NE(src_dq.head, copy.head);
+    ASSERT_NE(src_dq.tail, copy.tail);
+    assert_deque_eq(copy, src_vec);
 }
