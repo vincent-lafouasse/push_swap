@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/07/17 17:21:30 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:32:45 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,5 @@ size_t						deque_size(const t_int_deque dq);
 void						deque_rotate_push(t_int_deque *dq);
 void						deque_rotate_pull(t_int_deque *dq);
 void						deque_clear(t_int_deque *dq);
+
+void deque_sort(t_int_deque* dq);
