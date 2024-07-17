@@ -21,10 +21,14 @@ t_int_deque deque_from_vec(const Vector& v)
     return dq;
 }
 
-void log_deque(const t_int_deque dq)
+void log_deque(const t_int_deque dq, const char* name)
 {
+    std::cout << name << " : ";
     if (!dq.head)
+    {
+        std::cout << std::endl;
         return;
+    }
 
     t_int_list* current = dq.head;
     std::cout << current->val;
@@ -70,4 +74,32 @@ TEST(Stack, SwapNoOp)
     swap_b(&stacks);
     assert_deque_eq(stacks.a, a);
     assert_deque_eq(stacks.b, b);
+}
+
+TEST(Stack, Push)
+{
+    const Vector a{};
+    const Vector b{1, 2, 3};
+    t_stacks stacks = {.a = deque_from_vec(a), .b = deque_from_vec(b)};
+    log_deque(stacks.a, "a");
+    log_deque(stacks.b, "b");
+
+    push_a(&stacks);
+    log_deque(stacks.a, "a");
+    log_deque(stacks.b, "b");
+    assert_deque_eq(stacks.a, {1});
+    assert_deque_eq(stacks.b, {2, 3});
+    FAIL();
+
+    push_a(&stacks);
+    assert_deque_eq(stacks.a, {2, 1});
+    assert_deque_eq(stacks.b, {3});
+
+    push_a(&stacks);
+    assert_deque_eq(stacks.a, {3, 2, 1});
+    assert_deque_eq(stacks.b, {});
+
+    push_a(&stacks);
+    assert_deque_eq(stacks.a, {3, 2, 1});
+    assert_deque_eq(stacks.b, {});
 }
