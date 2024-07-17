@@ -1,12 +1,11 @@
 #include "stack/t_stacks.h"
-#include "deque/t_int_deque.h"
+#include "load/load.h"
 #include "log/log.h"
 
-int	main(void)
+int	main(int ac, char** av)
 {
 	t_stacks	stacks;
 
-	stacks.a = deque_new();
-	stacks.b = deque_new();
+	stacks = stacks_from_strings((const char**)av + 1, ac - 1);
 	log_stacks_horizontal(stacks);
 }
