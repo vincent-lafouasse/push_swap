@@ -159,8 +159,7 @@ TEST(Stack, Rotate)
     assert_deque_eq(stacks.a, {3, 1, 2});
     assert_deque_eq(stacks.b, {-3, -1, -2});
 
-    rotate_b(&stacks);
-    rotate_a(&stacks);
+    rotate_both(&stacks);
     assert_deque_eq(stacks.a, a);
     assert_deque_eq(stacks.b, b);
 }
