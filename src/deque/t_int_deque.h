@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/07/15 15:24:55 by poss             ###   ########.fr       */
+/*   Updated: 2024/07/17 17:21:30 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_int_deque
 }							t_int_deque;
 
 t_int_deque					deque_new(void);
+t_int_deque					deque_deep_copy(const t_int_deque dq);
 const t_int_list			*deque_peek_back(const t_int_deque dq);
 const t_int_list			*deque_peek_front(const t_int_deque dq);
 t_int_list					*deque_pop_front(t_int_deque *dq);
