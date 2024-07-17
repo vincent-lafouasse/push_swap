@@ -117,3 +117,26 @@ TEST(Stack, Push)
     assert_deque_eq(stacks.a, a);
     assert_deque_eq(stacks.b, b);
 }
+
+TEST(Stack, RotateNoOp)
+{
+    const Vector a{};
+    const Vector b{1};
+    t_stacks stacks = {.a = deque_from_vec(a), .b = deque_from_vec(b)};
+
+    rotate_a(&stacks);
+    assert_deque_eq(stacks.a, a);
+    assert_deque_eq(stacks.b, b);
+
+    rrotate_a(&stacks);
+    assert_deque_eq(stacks.a, a);
+    assert_deque_eq(stacks.b, b);
+
+    rotate_b(&stacks);
+    assert_deque_eq(stacks.a, a);
+    assert_deque_eq(stacks.b, b);
+
+    rrotate_b(&stacks);
+    assert_deque_eq(stacks.a, a);
+    assert_deque_eq(stacks.b, b);
+}
