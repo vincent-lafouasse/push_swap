@@ -13,10 +13,10 @@ void deque_sort(t_int_deque* dq)
 	if (!dq || dq->sz <= 1)
 		return ;
 	is_sorted = false;
-	current = dq->head;
 	while (!is_sorted)
 	{
 		is_sorted = true;
+		current = dq->head;
 		while (current->next)
 		{
 			if (current->val > current->next->val)
