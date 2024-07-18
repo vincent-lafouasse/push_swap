@@ -6,6 +6,7 @@
 
 #include <stdlib.h>
 
+// refactor to mutate directly dq instead of reseating it
 void simplify(t_int_deque* dq)
 {
 	int* sorted_data = deque_copy_into_array(*dq);
