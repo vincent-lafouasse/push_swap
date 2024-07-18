@@ -5,6 +5,14 @@
 
 #include <stdlib.h>
 #include <assert.h>
+#include <stdbool.h>
+
+void ft_swap(int* a, int* b)
+{
+	int buffer = *a;
+	*a = *b;
+	*b = buffer;
+}
 
 int* copy_into_array(const t_int_deque dq)
 {
@@ -24,6 +32,23 @@ int* copy_into_array(const t_int_deque dq)
 	assert(i == dq.sz);
 	assert(current == NULL);
 	return array;
+}
+
+void sort_array(int* array, size_t len)
+{
+	bool is_sorted = false;
+	size_t i;
+
+	while (!is_sorted)
+	{
+		is_sorted = true;
+		i = 0;
+		while (i < len - 1)
+		{
+			if (array[i] > array[i + 1])
+				ft_swap(array + i, array + i + 1);
+		}
+	}
 }
 
 void simplify(t_int_deque* dq)
