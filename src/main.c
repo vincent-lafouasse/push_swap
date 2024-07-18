@@ -9,9 +9,9 @@
 void simplify(t_int_deque* dq)
 {
 	int* sorted_data = deque_copy_into_array(*dq);
-	log_int_array(sorted_data, dq->sz);
+	//log_int_array(sorted_data, dq->sz);
 	sort_array(sorted_data, dq->sz);
-	log_int_array(sorted_data, dq->sz);
+	//log_int_array(sorted_data, dq->sz);
 
 	t_int_deque out = deque_new();
 	int index;
