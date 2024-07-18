@@ -11,11 +11,14 @@ void log_stacks_horizontal(const t_stacks s)
 	log_deque(s.b, "b");
 }
 
+void log_int_array(const int* array, size_t len);
+
 static void log_deque(const t_int_deque dq, const char* name)
 {
 	t_int_list* current;
 
-	printf("%s : ", name);
+	if (name) 
+		printf("%s : ", name);
 	if (dq.sz == 0)
 	{
 		printf("\n");
