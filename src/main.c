@@ -4,6 +4,7 @@
 #include "log/log.h"
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <assert.h>
 #include <stdbool.h>
 
@@ -46,8 +47,23 @@ void sort_array(int* array, size_t len)
 		while (i < len - 1)
 		{
 			if (array[i] > array[i + 1])
+			{
 				ft_swap(array + i, array + i + 1);
+				is_sorted = false;
+			}
+			i++;
 		}
+	}
+}
+
+void log_array(int* array, size_t len)
+{
+	size_t i = 0;
+
+	while (i < len)
+	{
+		printf("%d ", array[i]);
+		i++;
 	}
 }
 
