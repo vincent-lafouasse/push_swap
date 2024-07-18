@@ -3,9 +3,6 @@
 #include "load/load.h"
 #include "log/log.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <assert.h>
 #include <stdbool.h>
 
 void ft_swap(int* a, int* b)
@@ -13,26 +10,6 @@ void ft_swap(int* a, int* b)
 	int buffer = *a;
 	*a = *b;
 	*b = buffer;
-}
-
-int* copy_into_array(const t_int_deque dq)
-{
-	int* array = malloc(dq.sz * sizeof(*array));
-	if (!array)
-		return NULL;
-
-	size_t i = 0;
-	t_int_list* current = dq.head;
-	while (current && i < dq.sz)
-	{
-		array[i] = current->val;
-		current = current->next;
-		i++;
-	}
-
-	assert(i == dq.sz);
-	assert(current == NULL);
-	return array;
 }
 
 void sort_array(int* array, size_t len)
@@ -58,7 +35,7 @@ void sort_array(int* array, size_t len)
 
 void simplify(t_int_deque* dq)
 {
-	int* data = copy_into_array(*dq);
+	int* data = deque_copy_into_array(*dq);
 	log_int_array(data, dq->sz);
 	sort_array(data, dq->sz);
 	log_int_array(data, dq->sz);
