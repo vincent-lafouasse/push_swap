@@ -1,33 +1,34 @@
+#include "deque/t_int_deque.h"
 #include "stack/t_stacks.h"
 #include "load/load.h"
 #include "log/log.h"
 
 #include <stdlib.h>
+#include <assert.h>
 
-typedef struct s_ordering_ctx {
-	int val;
-	size_t original_ordering;
-} t_ordering_ctx;
-
-t_int_deque simplify(t_int_deque* dq)
+int* copy_into_array(const t_int_deque dq)
 {
-	t_ordering_ctx* original_order;
-	t_int_list* current;
-	size_t i;
+	int* array = malloc(dq.sz * sizeof(*array));
+	if (!array)
+		return NULL;
 
-	original_order = malloc(dq->sz * sizeof(*original_order));
-	if (!original_order)
-		return deque_new();
-	current = dq->head;
-	i = 0;
-	while (i < dq->sz)
+	size_t i = 0;
+	t_int_list* current = dq.head;
+	while (current && i < dq.sz)
 	{
-		original_order[i] = (t_ordering_ctx){current->val, i};
+		array[i] = current->val;
 		current = current->next;
 		i++;
 	}
 
-	return *dq;
+	assert(i == dq.sz);
+	assert(current == NULL);
+	return array;
+}
+
+void simplify(t_int_deque* dq)
+{
+	int* data = copy_into_array(*dq);
 }
 
 int	main(int ac, char** av)
