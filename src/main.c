@@ -56,24 +56,12 @@ void sort_array(int* array, size_t len)
 	}
 }
 
-void log_array(int* array, size_t len)
-{
-	size_t i = 0;
-
-	while (i < len)
-	{
-		printf("%d ", array[i]);
-		i++;
-	}
-	printf("\n");
-}
-
 void simplify(t_int_deque* dq)
 {
 	int* data = copy_into_array(*dq);
-	log_array(data, dq->sz);
+	log_int_array(data, dq->sz);
 	sort_array(data, dq->sz);
-	log_array(data, dq->sz);
+	log_int_array(data, dq->sz);
 }
 
 int	main(int ac, char** av)

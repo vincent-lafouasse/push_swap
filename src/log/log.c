@@ -3,17 +3,25 @@
 
 #include <stdio.h> // careful my dude
 
-static void log_deque(const t_int_deque dq, const char* name);
-
 void log_stacks_horizontal(const t_stacks s)
 {
 	log_deque(s.a, "a");
 	log_deque(s.b, "b");
 }
 
-void log_int_array(const int* array, size_t len);
+void log_int_array(const int* array, size_t len)
+{
+	size_t i = 0;
 
-static void log_deque(const t_int_deque dq, const char* name)
+	while (i < len)
+	{
+		printf("%d ", array[i]);
+		i++;
+	}
+	printf("\n");
+}
+
+void log_deque(const t_int_deque dq, const char* name)
 {
 	t_int_list* current;
 
