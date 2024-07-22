@@ -5,8 +5,40 @@
 #include "log/log.h"
 
 #include <stdlib.h>
+#include <stdio.h> // living dangerously
 
-// refactor to mutate directly dq instead of reseating it
+void simplify(t_int_deque* dq);
+
+size_t n_bits(unsigned int n)
+{
+	size_t out = 0;
+
+	while (n)
+	{
+		n /= 2;
+		out++;
+	}
+	return out;
+}
+
+void test_n_bits(unsigned int n)
+{
+	printf("%u has %zu bits, look! %b\n", n, n_bits(n), n);
+}
+
+void split_binary_buckets(t_stacks* stacks, size_t bit_position)
+{}
+
+int	main(int ac, char** av)
+{
+	t_stacks	stacks;
+
+	stacks = stacks_from_strings((const char**)av + 1, ac - 1);
+	log_stacks_horizontal(stacks);
+	simplify(&stacks.a);
+	log_stacks_horizontal(stacks);
+}
+
 void simplify(t_int_deque* dq)
 {
 	int* sorted_data = deque_copy_into_array(*dq);
@@ -27,14 +59,4 @@ void simplify(t_int_deque* dq)
 	}
 	deque_clear(dq);
 	*dq = out;
-}
-
-int	main(int ac, char** av)
-{
-	t_stacks	stacks;
-
-	stacks = stacks_from_strings((const char**)av + 1, ac - 1);
-	log_stacks_horizontal(stacks);
-	simplify(&stacks.a);
-	log_stacks_horizontal(stacks);
 }
