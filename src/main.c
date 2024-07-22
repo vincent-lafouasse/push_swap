@@ -36,6 +36,12 @@ void split_binary_buckets(t_stacks* stacks, size_t bit_position)
 	}
 }
 
+void append_binary_buckets(t_stacks* stacks)
+{
+	while (stacks->b.sz)
+		push_a(stacks);
+}
+
 int	main(int ac, char** av)
 {
 	t_stacks	stacks;
@@ -47,6 +53,9 @@ int	main(int ac, char** av)
 	log_stacks_horizontal(stacks, true);
 	split_binary_buckets(&stacks, 0);
 	printf("after split\n");
+	log_stacks_horizontal(stacks, true);
+	printf("unify again\n");
+	append_binary_buckets(&stacks);
 	log_stacks_horizontal(stacks, true);
 }
 
