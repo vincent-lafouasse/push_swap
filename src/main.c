@@ -22,7 +22,10 @@ size_t n_bits(unsigned int n)
 }
 
 void split_binary_buckets(t_stacks* stacks, size_t bit_position)
-{}
+{
+	(void)stacks;
+	(void)bit_position;
+}
 
 int	main(int ac, char** av)
 {
