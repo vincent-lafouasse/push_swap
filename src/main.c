@@ -21,11 +21,6 @@ size_t n_bits(unsigned int n)
 	return out;
 }
 
-void test_n_bits(unsigned int n)
-{
-	printf("%u has %zu bits, look! %b\n", n, n_bits(n), n);
-}
-
 void split_binary_buckets(t_stacks* stacks, size_t bit_position)
 {}
 
@@ -38,12 +33,6 @@ int	main(int ac, char** av)
 	simplify(&stacks.a);
 	log_stacks_horizontal(stacks, false);
 	log_stacks_horizontal(stacks, true);
-
-	test_n_bits(0);
-	test_n_bits(1);
-	test_n_bits(5);
-	test_n_bits(31);
-	test_n_bits(32);
 }
 
 void simplify(t_int_deque* dq)
