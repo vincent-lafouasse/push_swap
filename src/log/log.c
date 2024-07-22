@@ -40,7 +40,11 @@ void log_deque(const t_int_deque dq, const char* name, bool binary)
 	current = current->next;
 	while (current)
 	{
-		printf("->%d", current->val);
+		printf("->");
+		if (binary)
+			printf("%b", current->val);
+		else
+			printf("%d", current->val);
 		current = current->next;
 	}
 	printf("\n");
