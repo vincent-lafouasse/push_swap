@@ -3,10 +3,10 @@
 
 #include <stdio.h> // careful my dude
 
-void log_stacks_horizontal(const t_stacks s)
+void log_stacks_horizontal(const t_stacks s, bool binary)
 {
-	log_deque(s.a, "a");
-	log_deque(s.b, "b");
+	log_deque(s.a, "a", binary);
+	log_deque(s.b, "b", binary);
 }
 
 void log_int_array(const int* array, size_t len)
@@ -21,7 +21,7 @@ void log_int_array(const int* array, size_t len)
 	printf("\n");
 }
 
-void log_deque(const t_int_deque dq, const char* name)
+void log_deque(const t_int_deque dq, const char* name, bool binary)
 {
 	t_int_list* current;
 
@@ -33,7 +33,10 @@ void log_deque(const t_int_deque dq, const char* name)
 		return;
 	}
 	current = dq.head;
-	printf("%d", current->val);
+	if (binary)
+		printf("%b", current->val);
+	else
+		printf("%d", current->val);
 	current = current->next;
 	while (current)
 	{
