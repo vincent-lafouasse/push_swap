@@ -23,8 +23,17 @@ size_t n_bits(unsigned int n)
 
 void split_binary_buckets(t_stacks* stacks, size_t bit_position)
 {
-	(void)stacks;
-	(void)bit_position;
+	size_t sz = stacks->a.sz;
+	size_t i = 0;
+
+	while (i < sz)
+	{
+		if ((deque_peek_front(stacks->a)->val >> bit_position) & 1)
+			rotate_a(stacks);
+		else
+			push_b(stacks);
+		i++;
+	}
 }
 
 int	main(int ac, char** av)
@@ -35,6 +44,9 @@ int	main(int ac, char** av)
 	log_stacks_horizontal(stacks, false);
 	simplify(&stacks.a);
 	log_stacks_horizontal(stacks, false);
+	log_stacks_horizontal(stacks, true);
+	split_binary_buckets(&stacks, 0);
+	printf("after split\n");
 	log_stacks_horizontal(stacks, true);
 }
 
