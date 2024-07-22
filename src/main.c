@@ -37,6 +37,12 @@ int	main(int ac, char** av)
 	log_stacks_horizontal(stacks);
 	simplify(&stacks.a);
 	log_stacks_horizontal(stacks);
+
+	test_n_bits(0);
+	test_n_bits(1);
+	test_n_bits(5);
+	test_n_bits(31);
+	test_n_bits(32);
 }
 
 void simplify(t_int_deque* dq)
