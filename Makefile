@@ -81,6 +81,7 @@ vtest: $(LIBFT)
 	GTEST_COLOR=1 ctest --test-dir test/build -V
 
 CPPCHECKFLAGS  = --language=c
+CPPCHECKFLAGS += --check-level=exhaustive
 CPPCHECKFLAGS += --cppcheck-build-dir=build
 CPPCHECKFLAGS += --project=build/compile_commands.json
 .PHONY: check
