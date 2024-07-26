@@ -15,25 +15,27 @@ set_target_properties(libft PROPERTIES
 )
 
 set(deque_src
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_clear.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_new.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_peek.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_pop.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_push.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_rotate.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_size.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/deque_deep_copy.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/list_new.c
-  ${CMAKE_SOURCE_DIR}/../src/deque/t_int_deque.h
+  deque_clear.c
+  deque_new.c
+  deque_peek.c
+  deque_pop.c
+  deque_push.c
+  deque_rotate.c
+  deque_size.c
+  deque_deep_copy.c
+  list_new.c
+  t_int_deque.h
 )
+list(TRANSFORM deque_src PREPEND ${CMAKE_CURRENT_SOURCE_DIR}/../src/deque/)
 
 set(stack_src
-  ${CMAKE_SOURCE_DIR}/../src/stack/stack_push.c
-  ${CMAKE_SOURCE_DIR}/../src/stack/stack_rotate.c
-  ${CMAKE_SOURCE_DIR}/../src/stack/stack_rrotate.c
-  ${CMAKE_SOURCE_DIR}/../src/stack/stack_swap.c
-  ${CMAKE_SOURCE_DIR}/../src/stack/t_stacks.h
+  stack_push.c
+  stack_rotate.c
+  stack_rrotate.c
+  stack_swap.c
+  t_stacks.h
 )
+list(TRANSFORM stack_src PREPEND ${CMAKE_CURRENT_SOURCE_DIR}/../src/stack/)
 
 set(tested_include_dir
   ${CMAKE_SOURCE_DIR}/../src
