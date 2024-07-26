@@ -41,13 +41,20 @@ set(tested_include_dir
   ${CMAKE_SOURCE_DIR}/../src
 )
 
+set(assertion_module
+  src/common/custom_assertions.h
+  src/common/custom_assertions.cpp
+)
+
+set(common_modules
+  ${assertion_module}
+)
+
 add_executable(deque
   src/deque/deque_test.cpp
   src/deque/main.cpp
 
-  src/common/custom_assertions.h
-  src/common/custom_assertions.cpp
-
+  ${common_modules}
   ${deque_src}
 )
 
@@ -64,9 +71,7 @@ add_executable(stack
   src/stack/stack_test.cpp
   src/stack/main.cpp
 
-  src/common/custom_assertions.h
-  src/common/custom_assertions.cpp
-
+  ${common_modules}
   ${deque_src}
   ${stack_src}
 
