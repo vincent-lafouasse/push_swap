@@ -18,9 +18,9 @@ t_int_deque	deque_deep_copy(const t_int_deque dq)
 	return out;
 }
 
-int* deque_copy_into_array(const t_int_deque dq)
+int32_t* deque_copy_into_array(const t_int_deque dq)
 {
-	int* array = malloc(dq.sz * sizeof(*array));
+	int32_t* array = malloc(dq.sz * sizeof(*array));
 	if (!array)
 		return NULL;
 

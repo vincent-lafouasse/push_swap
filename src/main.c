@@ -5,11 +5,12 @@
 #include "log/log.h"
 
 #include <stdlib.h>
+#include <stdint.h>
 #include <stdio.h> // living dangerously
 
 void simplify(t_int_deque* dq);
 
-size_t n_bits(unsigned int n)
+size_t n_bits(uint32_t n)
 {
 	size_t out = 0;
 
