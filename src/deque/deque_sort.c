@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 static void swap_with_next(t_int_list* node);
-static void swap_int(int* a, int* b);
+static void swap_int(t_i32* a, t_i32* b);
 
 void deque_sort(t_int_deque* dq)
 {
@@ -33,12 +33,12 @@ static void swap_with_next(t_int_list* node)
 {
 	if (!node || !node->next)
 		return;
-	swap_int((int*)&node->val, (int*)&node->next->val);
+	swap_int((t_i32*)&node->val, (t_i32*)&node->next->val);
 }
 
-static void swap_int(int* a, int* b)
+static void swap_int(t_i32* a, t_i32* b)
 {
-	int buffer;
+	t_i32 buffer;
 	
 	if (!a || !b)
 		return;

@@ -4,7 +4,7 @@
 t_opt_int	checked_atoi(const char *s)
 {
 	const char	*trimmed;
-	int			val;
+	t_i32			val;
 
 	val = 0;
 	if (!s)

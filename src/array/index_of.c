@@ -1,6 +1,6 @@
 #include "array_operations.h"
 
-int index_of(int value, const int* array, size_t len)
+int index_of(t_i32 value, const t_i32* array, size_t len)
 {
 	int i = 0;
 

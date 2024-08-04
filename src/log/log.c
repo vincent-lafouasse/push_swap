@@ -9,7 +9,7 @@ void log_stacks_horizontal(const t_stacks s, bool binary)
 	log_deque(s.b, "b", binary);
 }
 
-void log_int_array(const int* array, size_t len)
+void log_int_array(const t_i32* array, size_t len)
 {
 	size_t i = 0;
 
