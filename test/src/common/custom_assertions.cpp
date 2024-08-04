@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-void assert_deque_eq(const t_int_deque dq, const std::vector<int>& expected)
+void assert_deque_eq(const t_int_deque dq, const std::vector<t_i32>& expected)
 {
     EXPECT_EQ(dq.sz, expected.size()) << "Error, invalid size. expected size "
                                       << expected.size() << " was " << dq.sz;

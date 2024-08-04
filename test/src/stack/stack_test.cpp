@@ -8,12 +8,12 @@ extern "C"
 #include "stack/t_stacks.h"
 };
 
-typedef std::vector<int> Vector;
+typedef std::vector<t_i32> Vector;
 
 t_int_deque deque_from_vec(const Vector& v)
 {
     t_int_deque dq = deque_new();
-    for (int e : v)
+    for (t_i32 e : v)
     {
         deque_push_back(&dq, e);
     }
