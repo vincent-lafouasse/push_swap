@@ -38,7 +38,7 @@ static void swap_with_next(t_int_list* node)
 
 static void swap_int(int32_t* a, int32_t* b)
 {
-	int buffer;
+	int32_t buffer;
 	
 	if (!a || !b)
 		return;

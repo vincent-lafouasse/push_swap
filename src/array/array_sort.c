@@ -2,9 +2,9 @@
 
 #include <stdbool.h>
 
-static void ft_swap(int* a, int* b);
+static void ft_swap(int32_t* a, int32_t* b);
 
-void sort_array(int* array, size_t len)
+void sort_array(int32_t* array, size_t len)
 {
 	bool is_sorted = false;
 	size_t i;
@@ -25,9 +25,9 @@ void sort_array(int* array, size_t len)
 	}
 }
 
-static void ft_swap(int* a, int* b)
+static void ft_swap(int32_t* a, int32_t* b)
 {
-	int buffer = *a;
+	int32_t buffer = *a;
 	*a = *b;
 	*b = buffer;
 }

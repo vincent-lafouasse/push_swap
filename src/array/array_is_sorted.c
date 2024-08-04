@@ -1,6 +1,6 @@
 #include "array_operations.h"
 
-bool array_is_sorted(const int* array, size_t len)
+bool array_is_sorted(const int32_t* array, size_t len)
 {
 	size_t i = 0;
 
