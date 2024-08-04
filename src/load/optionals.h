@@ -1,16 +1,17 @@
 #pragma once
 
+#include "libft/types.h"
 #include <stdbool.h>
 
 typedef struct s_opt_int
 {
-	int val;
+	t_i32 val;
 	bool is_valid;
 } t_opt_int;
 
 typedef struct s_opt_uint
 {
-	unsigned int val;
+	t_u32 val;
 	bool is_valid;
 } t_opt_uint;
 
