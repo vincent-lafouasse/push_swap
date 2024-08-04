@@ -2,7 +2,7 @@
 #include "t_int_deque.h"
 #include <stdlib.h>
 
-t_int_list	*list_new(int32_t val)
+t_int_list	*list_new(t_i32 val)
 {
 	t_int_list	*out;
 
