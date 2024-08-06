@@ -2,11 +2,7 @@
 #include "stack/t_stacks.h"
 #include "load/load.h"
 #include "log/log.h"
-
-#include <stdlib.h>
-#include <stdio.h> // careful
-
-static void die(const char* msg);
+#include "error/error.h"
 
 int	main(int ac, char** av)
 {
@@ -26,10 +22,4 @@ int	main(int ac, char** av)
 	log_deque(stacks.a, NULL, false);
 
 	log_operation_list(operations);
-}
-
-static void die(const char* msg)
-{
-	printf("%s\n", msg);
-	exit(1);
 }
