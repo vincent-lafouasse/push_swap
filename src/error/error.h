@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 typedef enum e_error {
-	NO_ERROR,
+	OK,
 	OOM,
 	DUPLICATES,
 	NOT_A_NUMBER,
