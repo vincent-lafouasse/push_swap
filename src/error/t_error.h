@@ -5,4 +5,5 @@ typedef enum e_error {
 	OOM,
 	DUPLICATES,
 	NOT_A_NUMBER,
+	NULL_OUT_PARAM,
 } t_error;
