@@ -48,7 +48,7 @@ int	main(int ac, char** av)
 
 	stacks = stacks_from_strings((const char**)av + 1, ac - 1);
 	simplify(&stacks.a);
-	log_stacks_horizontal(stacks, false);
+	log_deque(stacks.a, NULL, false);
 
 	size_t bit_depth = n_bits(stacks.a.sz);
 	size_t i = 0;
@@ -59,5 +59,5 @@ int	main(int ac, char** av)
 		i++;
 	}
 
-	log_stacks_horizontal(stacks, false);
+	log_deque(stacks.a, NULL, false);
 }
