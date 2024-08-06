@@ -13,6 +13,8 @@ int	main(int ac, char** av)
 	simplify(&stacks.a);
 	log_deque(stacks.a, NULL, false);
 
-	radix_sort(&stacks);
+	t_int_deque operations = radix_sort(&stacks);
 	log_deque(stacks.a, NULL, false);
+
+	log_operation_list(operations);
 }

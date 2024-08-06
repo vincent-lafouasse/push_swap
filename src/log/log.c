@@ -86,9 +86,11 @@ void log_operation_list(const t_int_deque ops)
 {
 	t_int_list* current = ops.head;
 
+	printf("operations:\n\n");
 	while (current)
 	{
 		log_operation(current->val);
+		printf("\n");
 		current = current->next;
 	}
 }
