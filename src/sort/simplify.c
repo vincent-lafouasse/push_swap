@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "array/array_operations.h"
 
-bool simplify(t_int_deque* dq)
+bool simplify_verify(t_int_deque* dq)
 {
 	int* sorted_data = deque_copy_into_array(*dq);
 	if (sorted_data == NULL)

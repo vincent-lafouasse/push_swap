@@ -13,7 +13,7 @@ int	main(int ac, char** av)
 	stacks = stacks_from_strings((const char**)av + 1, ac - 1);
 	log_deque(stacks.a, NULL, false);
 
-	if (simplify(&stacks.a) == false)
+	if (simplify_verify(&stacks.a) == false)
 		clear_and_exit(&stacks, NULL);
 	log_deque(stacks.a, NULL, false);
 
