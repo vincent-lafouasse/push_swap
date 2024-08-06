@@ -5,6 +5,8 @@
 
 void die(const char* msg)
 {
-	printf("%s\n", msg);
+	printf("Error\n");
+	if (msg)
+		printf("%s\n", msg);
 	exit(1);
 }

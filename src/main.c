@@ -4,7 +4,9 @@
 #include "log/log.h"
 #include "error/error.h"
 
-static void clear_and_exit(t_stacks* stacks, t_int_deque* operations);
+#define VERBOSE true
+
+static void clear_and_die(t_stacks* stacks, t_int_deque* operations, t_error error);
 
 int	main(int ac, char** av)
 {
@@ -14,7 +16,7 @@ int	main(int ac, char** av)
 	log_deque(stacks.a, NULL, false);
 
 	if (simplify_verify(&stacks.a) == false)
-		clear_and_exit(&stacks, NULL);
+		clear_and_die(&stacks, NULL);
 	log_deque(stacks.a, NULL, false);
 
 	t_int_deque operations = radix_sort(&stacks);
@@ -23,7 +25,7 @@ int	main(int ac, char** av)
 	log_operation_list(operations);
 }
 
-static void clear_and_exit(t_stacks* stacks, t_int_deque* operations)
+static void clear_and_die(t_stacks* stacks, t_int_deque* operations, t_error error)
 {
 	if (stacks)
 	{
@@ -31,5 +33,8 @@ static void clear_and_exit(t_stacks* stacks, t_int_deque* operations)
 		deque_clear(&stacks->b);
 	}
 	deque_clear(operations);
-	die("Error");
+	if (VERBOSE)
+		die(error_repr(error));
+	else
+		die(NULL);
 }
