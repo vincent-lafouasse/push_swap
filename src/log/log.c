@@ -81,3 +81,14 @@ void log_operation(t_operation op)
 	else
 		printf("invalid operation");
 }
+
+void log_operation_list(const t_int_deque ops)
+{
+	t_int_list* current = ops.head;
+
+	while (current)
+	{
+		log_operation(current->val);
+		current = current->next;
+	}
+}
