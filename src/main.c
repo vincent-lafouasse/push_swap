@@ -4,6 +4,8 @@
 #include "log/log.h"
 #include "error/error.h"
 
+static void clear_and_exit(t_stacks* stacks, t_int_deque* operations);
+
 int	main(int ac, char** av)
 {
 	t_stacks	stacks;
@@ -12,14 +14,22 @@ int	main(int ac, char** av)
 	log_deque(stacks.a, NULL, false);
 
 	if (simplify(&stacks.a) == false)
-	{
-		deque_clear(&stacks.a);
-		die("Error");
-	}
+		clear_and_exit(&stacks, NULL);
 	log_deque(stacks.a, NULL, false);
 
 	t_int_deque operations = radix_sort(&stacks);
 	log_deque(stacks.a, NULL, false);
 
 	log_operation_list(operations);
+}
+
+static void clear_and_exit(t_stacks* stacks, t_int_deque* operations)
+{
+	if (stacks)
+	{
+		deque_clear(&stacks->a);
+		deque_clear(&stacks->b);
+	}
+	deque_clear(operations);
+	die("Error");
 }
