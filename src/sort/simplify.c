@@ -19,7 +19,7 @@ t_error simplify_verify(t_int_deque* dq)
 	{
 		index = index_of(current->val, sorted_data, dq->sz);
 		if (index < 0)
-			return false;
+			return ERROR_ELEMENT_NOT_FOUND;
 		deque_push_back(&out, index);
 		current = current->next;
 	}

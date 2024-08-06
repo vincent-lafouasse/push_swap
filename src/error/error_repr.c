@@ -12,5 +12,7 @@ const char* error_repr(t_error err)
 		return "Input is not a number";
 	if (err == ERROR_NULL_OUT_PARAM)
 		return "Out param is NULL";
+	if (err == ERROR_ELEMENT_NOT_FOUND)
+		return "Element not found";
 	return "Unrecognised error";
 }
