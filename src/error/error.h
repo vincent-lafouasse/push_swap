@@ -1,13 +1,7 @@
 #pragma once
 
 #include <stdbool.h>
-
-typedef enum e_error {
-	OK,
-	OOM,
-	DUPLICATES,
-	NOT_A_NUMBER,
-} t_error;
+#include "t_error.h"
 
 void die(const char* msg);
 void assert(bool assertion, const char* msg);
