@@ -2,15 +2,15 @@
 
 const char* error_repr(t_error err)
 {
-	if (err == OK)
+	if (err == NO_ERROR)
 		return "Ok";
-	if (err == OOM)
+	if (err == ERROR_OOM)
 		return "Out of memory";
-	if (err == DUPLICATES)
+	if (err == ERROR_DUPLICATES)
 		return "Duplicates in input";
-	if (err == NOT_A_NUMBER)
+	if (err == ERROR_NOT_A_NUMBER)
 		return "Input is not a number";
-	if (err == NULL_OUT_PARAM)
+	if (err == ERROR_NULL_OUT_PARAM)
 		return "Out param is NULL";
 	return "Unrecognised error";
 }

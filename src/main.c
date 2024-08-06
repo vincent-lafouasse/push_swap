@@ -17,7 +17,7 @@ int	main(int ac, char** av)
 	log_deque(stacks.a, NULL, false);
 
 	err = simplify_verify(&stacks.a);
-	if (err != OK)
+	if (err != NO_ERROR)
 		clear_and_die(&stacks, NULL, err);
 	log_deque(stacks.a, NULL, false);
 

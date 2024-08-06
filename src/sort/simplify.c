@@ -7,10 +7,10 @@ t_error simplify_verify(t_int_deque* dq)
 {
 	int* sorted_data = deque_copy_into_array(*dq);
 	if (sorted_data == NULL)
-		return OOM;
+		return ERROR_OOM;
 	sort_array(sorted_data, dq->sz);
 	if (sorted_array_contains_duplicates(sorted_data, dq->sz))
-		return (free(sorted_data), DUPLICATES);
+		return (free(sorted_data), ERROR_DUPLICATES);
 
 	t_int_deque out = deque_new();
 	int index;
@@ -25,5 +25,5 @@ t_error simplify_verify(t_int_deque* dq)
 	}
 	deque_clear(dq);
 	*dq = out;
-	return OK;
+	return NO_ERROR;
 }
