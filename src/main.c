@@ -47,14 +47,17 @@ int	main(int ac, char** av)
 	t_stacks	stacks;
 
 	stacks = stacks_from_strings((const char**)av + 1, ac - 1);
-	log_stacks_horizontal(stacks, false);
 	simplify(&stacks.a);
 	log_stacks_horizontal(stacks, false);
-	log_stacks_horizontal(stacks, true);
-	split_binary_buckets(&stacks, 0);
-	printf("after split\n");
-	log_stacks_horizontal(stacks, true);
-	printf("unify again\n");
-	append_binary_buckets(&stacks);
-	log_stacks_horizontal(stacks, true);
+
+	size_t bit_depth = n_bits(stacks.a.sz);
+	size_t i = 0;
+	while (i <= bit_depth)
+	{
+		split_binary_buckets(&stacks, i);
+		append_binary_buckets(&stacks);
+		i++;
+	}
+
+	log_stacks_horizontal(stacks, false);
 }
