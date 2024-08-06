@@ -1,6 +1,5 @@
 #include "sort/sort.h"
 #include "deque/t_int_deque.h"
-#include "array/array_operations.h"
 #include "stack/t_stacks.h"
 #include "load/load.h"
 #include "log/log.h"
