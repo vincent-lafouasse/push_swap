@@ -6,11 +6,13 @@
 
 #define VERBOSE true
 
+static void clear(t_stacks* stacks, t_int_deque* operations);
 static void clear_and_die(t_stacks* stacks, t_int_deque* operations, t_error error);
 
 int	main(int ac, char** av)
 {
 	t_stacks	stacks;
+	t_int_deque operations;
 	t_error err;
 
 	stacks = stacks_from_strings((const char**)av + 1, ac - 1);
@@ -21,13 +23,14 @@ int	main(int ac, char** av)
 		clear_and_die(&stacks, NULL, err);
 	log_deque(stacks.a, NULL, false);
 
-	t_int_deque operations = radix_sort(&stacks);
+	operations = radix_sort(&stacks);
 	log_deque(stacks.a, NULL, false);
 
 	log_operation_list(operations);
+	clear(&stacks, &operations);
 }
 
-static void clear_and_die(t_stacks* stacks, t_int_deque* operations, t_error error)
+static void clear(t_stacks* stacks, t_int_deque* operations)
 {
 	if (stacks)
 	{
@@ -35,6 +38,11 @@ static void clear_and_die(t_stacks* stacks, t_int_deque* operations, t_error err
 		deque_clear(&stacks->b);
 	}
 	deque_clear(operations);
+}
+
+static void clear_and_die(t_stacks* stacks, t_int_deque* operations, t_error error)
+{
+	clear(stacks, operations);
 	if (VERBOSE)
 		die(error_repr(error));
 	else
