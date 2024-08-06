@@ -2,7 +2,7 @@
 
 #include <assert.h>
 
-bool array_contains_duplicates(const t_i32* sorted_array, size_t len)
+bool sorted_array_contains_duplicates(const t_i32* sorted_array, size_t len)
 {
 	assert(array_is_sorted(sorted_array, len));
 	size_t i = 0;
