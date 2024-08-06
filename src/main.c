@@ -11,12 +11,14 @@ static void clear_and_die(t_stacks* stacks, t_int_deque* operations, t_error err
 int	main(int ac, char** av)
 {
 	t_stacks	stacks;
+	t_error err;
 
 	stacks = stacks_from_strings((const char**)av + 1, ac - 1);
 	log_deque(stacks.a, NULL, false);
 
-	if (simplify_verify(&stacks.a) == false)
-		clear_and_die(&stacks, NULL);
+	err = simplify_verify(&stacks.a);
+	if (err != OK)
+		clear_and_die(&stacks, NULL, err);
 	log_deque(stacks.a, NULL, false);
 
 	t_int_deque operations = radix_sort(&stacks);
