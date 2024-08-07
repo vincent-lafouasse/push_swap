@@ -54,8 +54,28 @@ TEST(AtoU, Valid)
     assert_opt_ok(opt, 4294967295);
 }
 
-TEST(AtoU, Overflow)
-{}
-
 TEST(AtoU, NotANumber)
+{
+    t_opt_uint opt;
+
+    opt = checked_atou("salut");
+    assert_opt_none(opt);
+
+    opt = checked_atou("one");
+    assert_opt_none(opt);
+
+    opt = checked_atou(" 1 ");
+    assert_opt_none(opt);
+
+    opt = checked_atou("-420");
+    assert_opt_none(opt);
+
+    opt = checked_atou(INT_MIN_STR);
+    assert_opt_none(opt);
+
+    opt = checked_atou("");
+    assert_opt_none(opt);
+}
+
+TEST(AtoU, Overflow)
 {}
