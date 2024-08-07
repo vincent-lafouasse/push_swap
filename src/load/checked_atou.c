@@ -16,13 +16,6 @@ t_opt_uint	checked_atou(const char *s)
 		return uint_none();
 	if (*s == '0' && *(s + 1) != '\0')
 		return uint_none();
-
-	bool will_overflow = will_overflow_u32(s);
-	if (will_overflow)
-		printf("%s will overflow\n", s);
-	else
-		printf("%s wont overflow\n", s);
-
 	if (will_overflow_u32(s))
 		return uint_none();
 	val = 0;

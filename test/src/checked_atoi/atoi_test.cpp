@@ -48,10 +48,10 @@ TEST(AtoU, Valid)
     assert_opt_ok(opt, 420);
 
     opt = checked_atou(I32_MAX_STR);
-    assert_opt_ok(opt, 2147483647);
+    assert_opt_ok(opt, INT32_MAX);
     
     opt = checked_atou(U32_MAX_STR);
-    assert_opt_ok(opt, 4294967295);
+    assert_opt_ok(opt, UINT32_MAX);
 }
 
 TEST(AtoU, NotANumber)
@@ -95,4 +95,27 @@ TEST(AtoU, Overflow)
 
     opt = checked_atou("429496729600"); // more digits
     assert_opt_none(opt);
+}
+
+TEST(AtoI, Valid)
+{
+    t_opt_int opt;
+
+    opt = checked_atoi("0");
+    assert_opt_ok(opt, 0);
+
+    opt = checked_atoi("1");
+    assert_opt_ok(opt, 1);
+
+    opt = checked_atoi("69");
+    assert_opt_ok(opt, 69);
+
+    opt = checked_atoi("420");
+    assert_opt_ok(opt, 420);
+
+    opt = checked_atoi(I32_MAX_STR);
+    assert_opt_ok(opt, INT32_MAX);
+
+    opt = checked_atoi(I32_MIN_STR);
+    assert_opt_ok(opt, INT32_MIN);
 }
