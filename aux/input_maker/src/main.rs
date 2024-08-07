@@ -1,12 +1,18 @@
 use rand::seq::SliceRandom;
 use rand::thread_rng;
 
-const DEFAULT_SIZE: i32 = 1000;
+const DEFAULT_SIZE: i32 = 50;
 
 fn main() {
     let mut rng = thread_rng();
-    let mut y: Vec<i32> = (1..5).collect();
-    println!("Unshuffled: {:?}", y);
-    y.shuffle(&mut rng);
-    println!("Shuffled:   {:?}", y);
+
+    let sz: i32 = DEFAULT_SIZE;
+    let mut range: Vec<i32> = (-sz..sz).collect();
+    range.shuffle(&mut rng);
+
+    let sz: usize = sz.try_into().unwrap();
+    let slice = &range[..sz];
+
+    let out: String = slice.iter().map(|num| num.to_string()).collect::<Vec<String>>().join(" ");
+    println!("{}", out);
 }
