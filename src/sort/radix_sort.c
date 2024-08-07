@@ -11,7 +11,7 @@ t_int_deque radix_sort(t_stacks* stacks)
 
 	size_t bit_depth = n_bits(stacks->a.sz);
 	size_t i = 0;
-	while (i <= bit_depth)
+	while (i < bit_depth)
 	{
 		split_binary_buckets(stacks, i, &operations);
 		append_binary_buckets(stacks, &operations);
