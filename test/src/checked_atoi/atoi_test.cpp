@@ -122,3 +122,24 @@ TEST(AtoI, Valid)
     opt = checked_atoi("-420");
     assert_opt_ok(opt, -420);
 }
+
+
+TEST(AtoI, NotANumber)
+{
+    t_opt_int opt;
+
+    opt = checked_atoi("salut");
+    assert_opt_none(opt);
+
+    opt = checked_atoi("one");
+    assert_opt_none(opt);
+
+    opt = checked_atoi(" 1 ");
+    assert_opt_none(opt);
+
+    opt = checked_atoi("");
+    assert_opt_none(opt);
+
+    opt = checked_atoi("042");
+    assert_opt_none(opt);
+}
