@@ -4,6 +4,7 @@
 #include <stdbool.h>
 
 #include "deque/t_int_deque.h"
+#include "load_internals.h"
 #include "libft/stdlib.h" // bad atoi
 
 t_error stacks_from_strings(const char** numbers, int len, t_stacks* out)
@@ -18,7 +19,10 @@ t_error stacks_from_strings(const char** numbers, int len, t_stacks* out)
 	i = 0;
 	while (i < len)
 	{
-		deque_push_back(&stacks.a, ft_atoi(numbers[i]));
+		if (checked_atoi(numbers[i]).is_valid == false)
+			return deque_clear(&stacks.a), ERROR_NOT_A_NUMBER;
+		if (deque_push_back(&stacks.a, checked_atoi(numbers[i]).val) == false)
+			return deque_clear(&stacks.a), ERROR_OOM;
 		i++;
 	}
 	*out = stacks;
