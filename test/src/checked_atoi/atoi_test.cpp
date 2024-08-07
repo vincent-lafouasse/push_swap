@@ -75,7 +75,24 @@ TEST(AtoU, NotANumber)
 
     opt = checked_atou("");
     assert_opt_none(opt);
+
+    opt = checked_atou("042");
+    assert_opt_none(opt);
 }
 
 TEST(AtoU, Overflow)
-{}
+{
+    t_opt_uint opt;
+
+    opt = checked_atou("4294967296"); // U32_MAX + 1
+    assert_opt_none(opt);
+
+    opt = checked_atou("4294967305"); // U32_MAX + 10
+    assert_opt_none(opt);
+
+    opt = checked_atou("9994967305"); // same n digits but bigger
+    assert_opt_none(opt);
+
+    opt = checked_atou("429496729600"); // more digits
+    assert_opt_none(opt);
+}
