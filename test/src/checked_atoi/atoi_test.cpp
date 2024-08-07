@@ -43,3 +43,9 @@ TEST(AtoU, Valid)
     opt = checked_atou("420");
     assert_opt_ok(opt, 420);
 }
+
+TEST(AtoU, Overflow)
+{}
+
+TEST(AtoU, NotANumber)
+{}
