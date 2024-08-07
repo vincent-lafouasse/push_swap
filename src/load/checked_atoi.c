@@ -9,7 +9,7 @@ t_opt_int	checked_atoi(const char *s)
 	t_i8	sign;
 
 	if (!s)
-		return (opt_int_none());
+		return (int_none());
 	sign = 1;
 	if (*s == '-')
 	{
@@ -17,12 +17,13 @@ t_opt_int	checked_atoi(const char *s)
 		s++;
 	}
 	if (!checked_atou(s).is_valid)
-		return (opt_int_none());
+		return (int_none());
 	absolute_value = checked_atou(s).val;
-	if ((sign == 1 && absolute_value > INT32_MAX) || (sign == -1
-			&& absolute_value > ft_abs(INT32_MIN)))
-		return (opt_int_none());
-	return ((t_opt_int){.val = sign * absolute_value, .is_valid = true});
+	if (sign == 1 && absolute_value > INT32_MAX)
+		return (int_none());
+	if (sign == -1 && absolute_value > ft_abs(INT32_MIN))
+		return (int_none());
+	return (int_ok(sign * absolute_value));
 }
 
 static t_u32	ft_abs(t_i32 n)
