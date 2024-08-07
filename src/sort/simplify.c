@@ -5,7 +5,7 @@
 
 t_error simplify_verify(t_int_deque* dq)
 {
-	int* sorted_data = deque_copy_into_array(*dq);
+	t_i32* sorted_data = deque_copy_into_array(*dq);
 	if (sorted_data == NULL)
 		return ERROR_OOM;
 	sort_array(sorted_data, dq->sz);
