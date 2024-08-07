@@ -27,9 +27,9 @@ static void assert_opt_none(t_opt_int opt)
     ASSERT_FALSE(opt.is_valid);
 }
 
-const char* I32_MIN_STR = "-2147483648";
-const char* I32_MAX_STR = "2147483647";
-const char* U32_MAX_STR = "4294967295";
+std::string I32_MIN_STR = "-2147483648";
+std::string I32_MAX_STR = "2147483647";
+std::string U32_MAX_STR = "4294967295";
 
 TEST(AtoU, Valid)
 {
@@ -47,10 +47,10 @@ TEST(AtoU, Valid)
     opt = checked_atou("420");
     assert_opt_ok(opt, 420);
 
-    opt = checked_atou(I32_MAX_STR);
+    opt = checked_atou(I32_MAX_STR.c_str());
     assert_opt_ok(opt, INT32_MAX);
     
-    opt = checked_atou(U32_MAX_STR);
+    opt = checked_atou(U32_MAX_STR.c_str());
     assert_opt_ok(opt, UINT32_MAX);
 }
 
@@ -70,7 +70,7 @@ TEST(AtoU, NotANumber)
     opt = checked_atou("-420");
     assert_opt_none(opt);
 
-    opt = checked_atou(I32_MIN_STR);
+    opt = checked_atou(I32_MIN_STR.c_str());
     assert_opt_none(opt);
 
     opt = checked_atou("");
@@ -113,10 +113,10 @@ TEST(AtoI, Valid)
     opt = checked_atoi("420");
     assert_opt_ok(opt, 420);
 
-    opt = checked_atoi(I32_MAX_STR);
+    opt = checked_atoi(I32_MAX_STR.c_str());
     assert_opt_ok(opt, INT32_MAX);
 
-    opt = checked_atoi(I32_MIN_STR);
+    opt = checked_atoi(I32_MIN_STR.c_str());
     assert_opt_ok(opt, INT32_MIN);
 
     opt = checked_atoi("-420");
@@ -141,5 +141,16 @@ TEST(AtoI, NotANumber)
     assert_opt_none(opt);
 
     opt = checked_atoi("042");
+    assert_opt_none(opt);
+}
+
+TEST(AtoI, OverflowUnderflow)
+{
+    t_opt_int opt;
+
+    opt = checked_atoi(U32_MAX_STR.c_str());
+    assert_opt_none(opt);
+
+    opt = checked_atoi(("-" + U32_MAX_STR).c_str());
     assert_opt_none(opt);
 }
