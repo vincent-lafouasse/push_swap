@@ -70,9 +70,9 @@ update: fclean
 
 .PHONY: test
 test: $(LIBFT)
-	cmake -S test -B test/build
-	cmake --build test/build
-	GTEST_COLOR=1 ctest --test-dir test/build
+	cmake -S test -B build/test
+	cmake --build build/test
+	GTEST_COLOR=1 ctest --test-dir build/test
 
 .PHONY: vtest
 vtest: $(LIBFT)
