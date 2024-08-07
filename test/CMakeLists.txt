@@ -53,6 +53,7 @@ set(common_modules
   ${assertion_module}
 )
 
+# Deque test
 add_executable(deque
   src/deque/deque_test.cpp
   src/deque/main.cpp
@@ -70,6 +71,7 @@ target_link_libraries(deque
   libft
 )
 
+# Stack test
 add_executable(stack
   src/stack/stack_test.cpp
   src/stack/main.cpp
@@ -89,6 +91,32 @@ target_link_libraries(stack
   libft
 )
 
+# Atoi/Atou test
+set(atoi_src
+  checked_atoi.c
+  checked_atou.c
+  load_internals.h
+  optionals.c
+  optionals.h
+)
+list(TRANSFORM atoi_src PREPEND ${CMAKE_CURRENT_SOURCE_DIR}/../src/load/)
+
+add_executable(checked_atoi
+  src/checked_atoi/main.cpp
+  src/checked_atoi/atoi_test.cpp
+
+  ${atoi_src}
+)
+
+target_include_directories(checked_atoi PUBLIC
+  ${tested_include_dir}
+  src
+)
+target_link_libraries(checked_atoi
+  libgtest
+  libft
+)
+
 include(CTest)
 enable_testing()
 
@@ -96,3 +124,5 @@ add_test(NAME DequeTest
          COMMAND deque)
 add_test(NAME StackTest
          COMMAND stack)
+add_test(NAME AtoiTest
+         COMMAND checked_atoi)
