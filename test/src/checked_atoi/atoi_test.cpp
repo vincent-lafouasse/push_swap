@@ -5,10 +5,6 @@ extern "C"
 #include "load/load_internals.h"
 };
 
-const char* INT_MIN_STR = "-2147483648";
-const char* INT_MAX_STR = "2147483647";
-const char* UINT_MAX_STR = "4294967295";
-
 static void assert_opt_ok(t_opt_uint opt, t_u32 val)
 {
     ASSERT_TRUE(opt.is_valid);
@@ -30,6 +26,10 @@ static void assert_opt_none(t_opt_int opt)
 {
     ASSERT_FALSE(opt.is_valid);
 }
+
+const char* INT_MIN_STR = "-2147483648";
+const char* INT_MAX_STR = "2147483647";
+const char* UINT_MAX_STR = "4294967295";
 
 TEST(AtoU, Valid)
 {
