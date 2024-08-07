@@ -1,9 +1,11 @@
 #include "load_internals.h"
 #include "libft/ctype.h"
+#include "libft/string.h"
 
 const char* STR_U32_MAX = "4294967295";
 
 static bool str_is_all_numbers(const char* s);
+static bool will_overflow_u32(const char* s);
 
 t_opt_uint	checked_atou(const char *s)
 {
@@ -11,6 +13,8 @@ t_opt_uint	checked_atou(const char *s)
 	if (!s || !str_is_all_numbers(s) || !*s)
 		return uint_none();
 	if (*s == '0' && *(s + 1) != '\0')
+		return uint_none();
+	if (will_overflow_u32(s))
 		return uint_none();
 	val = 0;
 	while (*s)
@@ -31,5 +35,12 @@ static bool str_is_all_numbers(const char* s)
 			return false;
 		s++;
 	}
+	return true;
+}
+
+static bool will_overflow_u32(const char* s)
+{
+	if (ft_strlen(s) > ft_strlen(STR_U32_MAX))
+		return false;
 	return true;
 }
