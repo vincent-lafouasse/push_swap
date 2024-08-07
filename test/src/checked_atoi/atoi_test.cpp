@@ -153,4 +153,10 @@ TEST(AtoI, OverflowUnderflow)
 
     opt = checked_atoi(("-" + U32_MAX_STR).c_str());
     assert_opt_none(opt);
+
+    opt = checked_atoi("-2147483649"); // I32 min - 1
+    assert_opt_none(opt);
+
+    opt = checked_atoi("2147483648"); // I32 max + 1
+    assert_opt_none(opt);
 }
