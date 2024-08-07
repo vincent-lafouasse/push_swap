@@ -6,8 +6,7 @@ const DEFAULT_SIZE: i32 = 50;
 fn main() {
     let sz: i32 = std::env::args()
         .next()
-        .map(|s| s.parse().ok())
-        .flatten()
+        .and_then(|s| s.parse().ok())
         .unwrap_or(DEFAULT_SIZE);
 
     let mut range: Vec<i32> = (-sz..sz).collect();
