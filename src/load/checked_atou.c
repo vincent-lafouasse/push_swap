@@ -41,6 +41,6 @@ static bool str_is_all_numbers(const char* s)
 static bool will_overflow_u32(const char* s)
 {
 	if (ft_strlen(s) > ft_strlen(STR_U32_MAX))
-		return false;
-	return true;
+		return true;
+	return false;
 }
