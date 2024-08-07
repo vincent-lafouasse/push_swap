@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:03:19 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/08/06 18:39:45 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/07 13:00:24 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef enum e_operation {
   OP_SWAP_B,
   OP_SWAP_BOTH,
 
-  OP_PUSH_A,
-  OP_PUSH_B,
+  OP_PUSH_ONTO_A,
+  OP_PUSH_ONTO_B,
 
   OP_ROTATE_A,
   OP_ROTATE_B,

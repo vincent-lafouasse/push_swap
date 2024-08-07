@@ -36,7 +36,7 @@ static void split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_de
 		else
 		{
 			push_b(stacks);
-			deque_push_back(ops, OP_PUSH_B);
+			deque_push_back(ops, OP_PUSH_ONTO_B);
 		}
 		i++;
 	}
@@ -47,7 +47,7 @@ static void append_binary_buckets(t_stacks* stacks, t_int_deque* ops)
 	while (stacks->b.sz)
 	{
 		push_a(stacks);
-		deque_push_back(ops, OP_PUSH_A);
+		deque_push_back(ops, OP_PUSH_ONTO_A);
 	}
 }
 

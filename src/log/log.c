@@ -59,10 +59,10 @@ void log_operation(t_operation op)
 	else if (op == OP_SWAP_BOTH)
 		printf("swap both");
 
-	else if (op == OP_PUSH_A)
-		printf("push A");
-	else if (op == OP_PUSH_B)
-		printf("push B");
+	else if (op == OP_PUSH_ONTO_A)
+		printf("push onto A");
+	else if (op == OP_PUSH_ONTO_B)
+		printf("push onto B");
 
 	else if (op == OP_ROTATE_A)
 		printf("rotate A");
