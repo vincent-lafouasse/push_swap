@@ -1,6 +1,8 @@
 #include "load_internals.h"
 #include "libft/ctype.h"
 
+const char* STR_U32_MAX = "4294967295";
+
 static bool str_is_all_numbers(const char* s);
 
 t_opt_uint	checked_atou(const char *s)
