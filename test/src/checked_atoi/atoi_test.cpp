@@ -46,6 +46,12 @@ TEST(AtoU, Valid)
 
     opt = checked_atou("420");
     assert_opt_ok(opt, 420);
+
+    opt = checked_atou(INT_MAX_STR);
+    assert_opt_ok(opt, 2147483647);
+    
+    opt = checked_atou(UINT_MAX_STR);
+    assert_opt_ok(opt, 4294967295);
 }
 
 TEST(AtoU, Overflow)
