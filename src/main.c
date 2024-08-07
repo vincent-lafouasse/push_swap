@@ -2,7 +2,6 @@
 #include "sort/sort.h"
 #include "stack/t_stacks.h"
 #include "load/load.h"
-#include "log/log.h"
 #include "error/error.h"
 #include "output/output.h"
 
@@ -20,16 +19,10 @@ int	main(int ac, char** av)
 	err = stacks_from_strings((const char**)av + 1, ac - 1, &stacks);
 	if (err != NO_ERROR)
 		clear_and_die(NULL, NULL, err);
-	log_deque(stacks.a, NULL, false);
-
 	err = simplify_verify(&stacks.a);
 	if (err != NO_ERROR)
 		clear_and_die(&stacks, NULL, err);
-	log_deque(stacks.a, NULL, false);
-
 	operations = radix_sort(&stacks);
-	log_deque(stacks.a, NULL, false);
-
 	output_operation_list(operations);
 	clear(&stacks, &operations);
 }
