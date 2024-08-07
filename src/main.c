@@ -1,8 +1,10 @@
+#include "output/output.h"
 #include "sort/sort.h"
 #include "stack/t_stacks.h"
 #include "load/load.h"
 #include "log/log.h"
 #include "error/error.h"
+#include "output/output.h"
 
 #define VERBOSE true
 
@@ -28,7 +30,7 @@ int	main(int ac, char** av)
 	operations = radix_sort(&stacks);
 	log_deque(stacks.a, NULL, false);
 
-	log_operation_list(operations);
+	output_operation_list(operations);
 	clear(&stacks, &operations);
 }
 
