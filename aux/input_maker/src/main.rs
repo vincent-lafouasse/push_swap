@@ -14,11 +14,9 @@ fn main() {
     let mut rng = thread_rng();
     range.shuffle(&mut rng);
 
-    let sz: usize = sz.try_into().unwrap();
-    let slice = &range[..sz];
-
-    let out: String = slice
+    let out: String = range
         .iter()
+        .take(sz as usize)
         .map(|num| num.to_string())
         .collect::<Vec<String>>()
         .join(" ");
