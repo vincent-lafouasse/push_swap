@@ -118,4 +118,7 @@ TEST(AtoI, Valid)
 
     opt = checked_atoi(I32_MIN_STR);
     assert_opt_ok(opt, INT32_MIN);
+
+    opt = checked_atoi("-420");
+    assert_opt_ok(opt, -420);
 }
