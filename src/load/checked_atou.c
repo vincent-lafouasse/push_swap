@@ -10,6 +10,8 @@ t_opt_uint	checked_atou(const char *s)
 	t_u32 val;
 	if (!s || !str_is_all_numbers(s) || !*s)
 		return uint_none();
+	if (*s == '0' && *(s + 1) != '\0')
+		return uint_none();
 	val = 0;
 	while (*s)
 	{
