@@ -5,7 +5,7 @@ const DEFAULT_SIZE: i32 = 50;
 
 fn main() {
     let sz: i32 = std::env::args()
-        .next()
+        .nth(1)
         .and_then(|s| s.parse().ok())
         .unwrap_or(DEFAULT_SIZE);
 
