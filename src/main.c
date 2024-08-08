@@ -1,9 +1,9 @@
-#include "output/output.h"
 #include "sort/sort.h"
 #include "stack/t_stacks.h"
 #include "load/load.h"
 #include "error/error.h"
 #include "output/output.h"
+#include "optimization/optimize.h"
 
 #define VERBOSE true
 
@@ -23,6 +23,7 @@ int	main(int ac, char** av)
 	if (err != NO_ERROR)
 		clear_and_die(&stacks, NULL, err);
 	operations = radix_sort(&stacks);
+	optimize(&operations);
 	output_operation_list(operations);
 	clear(&stacks, &operations);
 }
