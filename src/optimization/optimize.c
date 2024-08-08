@@ -2,7 +2,7 @@
 #include "stack/t_stacks.h"
 
 static bool			optimize_once(t_int_deque *operations);
-static bool can_delete_node(t_int_list* node);
+static bool			can_consolidate_ops(t_int_list *node);
 static t_operation	opposite_op(t_operation op);
 
 void	optimize(t_int_deque *operations)
@@ -11,10 +11,10 @@ void	optimize(t_int_deque *operations)
 		return ;
 }
 
-static bool can_delete_node(t_int_list* node)
+static bool	can_delete_ops(t_int_list *node)
 {
 	if (!node || !node->next)
-		return false;
+		return (false);
 	return (t_operation)node->next->val == opposite_op(node->val);
 }
 
