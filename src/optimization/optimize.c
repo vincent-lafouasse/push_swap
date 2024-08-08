@@ -2,10 +2,11 @@
 #include "stack/t_stacks.h"
 
 static t_operation opposite_op(t_operation op);
+static bool optimize_once(t_int_deque* operations);
 
 void optimize(t_int_deque* operations)
 {
-	if (operations == NULL)
+	if (operations == NULL || operations->sz <= 1)
 		return;
 }
 
