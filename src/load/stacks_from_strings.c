@@ -1,11 +1,9 @@
 #include "deque/t_int_deque.h"
 #include "error/t_error.h"
-#include "libft/stdlib.h" // bad atoi
 #include "load.h"
 #include "load_internals.h"
-#include <stdbool.h>
 
-t_error	stacks_from_strings(const char **numbers, int len, t_stacks *out)
+t_error	load_stacks(const char **numbers, int len, t_stacks *out)
 {
 	t_stacks	stacks;
 	int			i;

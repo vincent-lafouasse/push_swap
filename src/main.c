@@ -16,7 +16,7 @@ int	main(int ac, char** av)
 	t_int_deque operations;
 	t_error err;
 
-	err = stacks_from_strings((const char**)av + 1, ac - 1, &stacks);
+	err = load_stacks((const char**)av + 1, ac - 1, &stacks);
 	if (err != NO_ERROR)
 		clear_and_die(NULL, NULL, err);
 	err = simplify_verify(&stacks.a);
