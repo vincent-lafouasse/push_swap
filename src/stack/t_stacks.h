@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:03:19 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/08/07 13:00:24 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/08/08 13:26:08 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef enum e_operation {
   OP_RROTATE_A,
   OP_RROTATE_B,
   OP_RROTATE_BOTH,
+
+  NULL_OP
 } t_operation;
 
 void swap_a(t_stacks *stacks);
