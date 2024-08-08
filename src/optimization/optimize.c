@@ -1,13 +1,21 @@
 #include "optimize.h"
 #include "stack/t_stacks.h"
 
-static t_operation	opposite_op(t_operation op);
 static bool			optimize_once(t_int_deque *operations);
+static bool can_delete_node(t_int_list* node);
+static t_operation	opposite_op(t_operation op);
 
 void	optimize(t_int_deque *operations)
 {
 	if (operations == NULL || operations->sz <= 1)
 		return ;
+}
+
+static bool can_delete_node(t_int_list* node)
+{
+	if (!node || !node->next)
+		return false;
+	return (t_operation)node->next->val == opposite_op(node->val);
 }
 
 static t_operation	opposite_op(t_operation op)
