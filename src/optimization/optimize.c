@@ -1,7 +1,25 @@
 #include "optimize.h"
+#include "stack/t_stacks.h"
+
+static t_operation opposite_op(t_operation op);
 
 void optimize(t_int_deque* operations)
 {
 	if (operations == NULL)
 		return;
+}
+
+static t_operation opposite_op(t_operation op)
+{
+	if (op == OP_SWAP_A)
+		return OP_SWAP_A;
+	if (op == OP_SWAP_B)
+		return OP_SWAP_B;
+	if (op == OP_SWAP_BOTH)
+		return OP_SWAP_BOTH;
+	if (op == OP_PUSH_ONTO_A)
+		return OP_PUSH_ONTO_B;
+	if (op == OP_PUSH_ONTO_B)
+		return OP_PUSH_ONTO_A;
+	return NULL_OP;
 }
