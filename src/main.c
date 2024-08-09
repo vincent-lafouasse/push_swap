@@ -22,7 +22,7 @@ int	main(int ac, char** av)
 	err = simplify_verify(&stacks.a);
 	if (err != NO_ERROR)
 		clear_and_die(&stacks, NULL, err);
-	operations = radix_sort(&stacks);
+	operations = sort(&stacks);
 	optimize(&operations);
 	output_operation_list(operations);
 	clear(&stacks, &operations);
