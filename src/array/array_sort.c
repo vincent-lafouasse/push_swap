@@ -7,13 +7,13 @@ static void ft_swap(t_i32* a, t_i32* b);
 void sort_array(t_i32* array, size_t len)
 {
 	bool is_sorted = false;
-	size_t i;
+	int i;
 
 	while (!is_sorted)
 	{
 		is_sorted = true;
 		i = 0;
-		while (i < len - 1)
+		while (i < (int)len - 1)
 		{
 			if (array[i] > array[i + 1])
 			{
