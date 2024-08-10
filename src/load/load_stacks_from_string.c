@@ -1,3 +1,4 @@
+#include "error/t_error.h"
 #include "load_internals.h"
 #include "libft/ft_string.h"
 
@@ -8,6 +9,10 @@ t_error load_stacks_from_string(const char* numbers, t_stacks* out)
 	char** split_numbers;
 	int sz;
 
+	if (numbers[0] == '\0')
+	{
+		return ERROR_NOT_A_NUMBER;
+	}
 	split_numbers = ft_split(numbers, ' ');
 	if (split_numbers == NULL)
 	{
