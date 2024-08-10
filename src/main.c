@@ -6,6 +6,7 @@
 #include "optimization/optimize.h"
 
 #define VERBOSE true
+#define EXIT_SUCCESS 0
 
 static void clear(t_stacks* stacks, t_int_deque* operations);
 static void clear_and_die(t_stacks* stacks, t_int_deque* operations, t_error error);
@@ -16,6 +17,8 @@ int	main(int ac, char** av)
 	t_int_deque operations;
 	t_error err;
 
+	if (ac == 1)
+		return EXIT_SUCCESS;
 	err = load_stacks((const char**)av + 1, ac - 1, &stacks);
 	if (err != NO_ERROR)
 		clear_and_die(NULL, NULL, err);
