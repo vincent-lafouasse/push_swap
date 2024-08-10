@@ -76,9 +76,9 @@ test: $(LIBFT)
 
 .PHONY: vtest
 vtest: $(LIBFT)
-	cmake -S test -B test/build
-	cmake --build test/build
-	GTEST_COLOR=1 ctest --test-dir test/build -V
+	cmake -S test -B build/test
+	cmake --build build/test
+	GTEST_COLOR=1 ctest --test-dir build/test -V
 
 CPPCHECKFLAGS  = --language=c
 # not available on distant server CPPCHECKFLAGS += --check-level=exhaustive
