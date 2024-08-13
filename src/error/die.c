@@ -1,9 +1,8 @@
 #include "error.h"
-
-#include <stdlib.h>
 #include <stdio.h> // careful
+#include <stdlib.h>
 
-void die(const char* msg)
+void	die(const char *msg)
 {
 	printf("Error\n");
 	if (msg)

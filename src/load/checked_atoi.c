@@ -1,5 +1,5 @@
-#include "load_internals.h"
 #include "error/t_error.h"
+#include "load_internals.h"
 
 static t_u32	ft_abs(t_i32 n);
 

@@ -12,8 +12,8 @@
 
 #pragma once
 
-#include <stdbool.h>
 #include "libft/types.h"
+#include <stdbool.h>
 
 typedef struct s_int_list	t_int_list;
 struct						s_int_list
@@ -50,6 +50,6 @@ void						deque_rotate_push(t_int_deque *dq);
 void						deque_rotate_pull(t_int_deque *dq);
 void						deque_clear(t_int_deque *dq);
 
-void deque_sort(t_int_deque* dq);
-bool deque_is_sorted(t_int_deque dq);
-t_i32* deque_copy_into_array(const t_int_deque dq);
+void						deque_sort(t_int_deque *dq);
+bool						deque_is_sorted(t_int_deque dq);
+t_i32						*deque_copy_into_array(const t_int_deque dq);

@@ -10,9 +10,14 @@ function norm {
 }
 
 SRC_DIR='./src'
-SRC=$(find $SRC_DIR -name '*.c' -or -name '*.h')
+H_DIR='./include'
 
+C_FILES=$(find $SRC_DIR -name '*.c')
+H_FILES=$(find $H_DIR -name '*.h')
+INTERNAL_H_FILES=$(find $SRC_DIR -name '*.h')
 
-for file in $SRC; do
+TO_NORM="$C_FILES $H_FILES $INTERNAL_H_FILES"
+
+for file in $TO_NORM; do
 	norm "$file"
 done

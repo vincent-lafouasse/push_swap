@@ -1,14 +1,14 @@
 #include "array_operations.h"
-
 #include <stdbool.h>
 
-static void ft_swap(t_i32* a, t_i32* b);
+static void	ft_swap(t_i32 *a, t_i32 *b);
 
-void sort_array(t_i32* array, size_t len)
+void	sort_array(t_i32 *array, size_t len)
 {
-	bool is_sorted = false;
-	int i;
+	bool	is_sorted;
+	int		i;
 
+	is_sorted = false;
 	while (!is_sorted)
 	{
 		is_sorted = true;
@@ -25,9 +25,11 @@ void sort_array(t_i32* array, size_t len)
 	}
 }
 
-static void ft_swap(t_i32* a, t_i32* b)
+static void	ft_swap(t_i32 *a, t_i32 *b)
 {
-	t_i32 buffer = *a;
+	t_i32	buffer;
+
+	buffer = *a;
 	*a = *b;
 	*b = buffer;
 }

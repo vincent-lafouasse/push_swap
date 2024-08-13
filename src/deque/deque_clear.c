@@ -7,7 +7,7 @@ void	deque_clear(t_int_deque *dq)
 	t_int_list	*buffer;
 
 	if (!dq)
-		return;
+		return ;
 	current = dq->head;
 	while (current)
 	{

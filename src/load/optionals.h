@@ -5,16 +5,15 @@
 
 typedef struct s_opt_int
 {
-	t_i32 val;
-	bool is_valid;
-} t_opt_int;
+	t_i32	val;
+	bool	is_valid;
+}			t_opt_int;
 
 typedef struct s_opt_uint
 {
-	t_u32 val;
-	bool is_valid;
-} t_opt_uint;
-
+	t_u32	val;
+	bool	is_valid;
+}			t_opt_uint;
 
 t_opt_int	int_none(void);
 t_opt_uint	uint_none(void);
