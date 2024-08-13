@@ -1,29 +1,35 @@
 #include "deque/t_int_deque.h"
 #include "sort_internals.h"
 
-static void split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_deque* ops);
-static void append_binary_buckets(t_stacks* stacks, t_int_deque* ops);
+static t_error split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_deque* ops);
+static t_error append_binary_buckets(t_stacks* stacks, t_int_deque* ops);
 static size_t n_bits(uint32_t n);
 
-t_int_deque radix_sort(t_stacks* stacks)
+t_error radix_sort(t_stacks* stacks, t_int_deque* ops_out)
 {
-	t_int_deque operations = deque_new();
-
+	if (!stacks || !ops_out)
+		return ERROR_NULL_OUT_PARAM;
 	size_t bit_depth = n_bits(stacks->a.sz);
 	size_t i = 0;
+	t_error err;
+	*ops_out = deque_new();
 	while (i < bit_depth)
 	{
 		if (deque_is_sorted(stacks->a))
 			break;
-		split_binary_buckets(stacks, i, &operations);
-		append_binary_buckets(stacks, &operations);
+		err = split_binary_buckets(stacks, i, ops_out);
+		if (err != NO_ERROR)
+			return err;
+		err = append_binary_buckets(stacks, ops_out);
+		if (err != NO_ERROR)
+			return err;
 		i++;
 	}
 
-	return operations;
+	return NO_ERROR;
 }
 
-static void split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_deque* ops)
+static t_error split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_deque* ops)
 {
 	size_t sz = stacks->a.sz;
 	size_t i = 0;
@@ -33,24 +39,29 @@ static void split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_de
 		if ((deque_peek_front(stacks->a)->val >> bit_position) & 1)
 		{
 			rotate_a(stacks);
-			deque_push_back(ops, OP_ROTATE_A);
+			if (deque_push_back(ops, OP_ROTATE_A) == false)
+				return ERROR_OOM;
 		}
 		else
 		{
 			push_b(stacks);
-			deque_push_back(ops, OP_PUSH_ONTO_B);
+			if (deque_push_back(ops, OP_PUSH_ONTO_B) == false)
+				return ERROR_OOM;
 		}
 		i++;
 	}
+	return NO_ERROR;
 }
 
-static void append_binary_buckets(t_stacks* stacks, t_int_deque* ops)
+static t_error append_binary_buckets(t_stacks* stacks, t_int_deque* ops)
 {
 	while (stacks->b.sz)
 	{
 		push_a(stacks);
-		deque_push_back(ops, OP_PUSH_ONTO_A);
+		if (deque_push_back(ops, OP_PUSH_ONTO_A) == false)
+			return ERROR_OOM;
 	}
+	return NO_ERROR;
 }
 
 static size_t n_bits(uint32_t n)
