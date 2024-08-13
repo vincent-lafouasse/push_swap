@@ -39,7 +39,7 @@ t_opt_int	checked_atoi(const char *s)
 
 static t_u32	ft_abs(t_i32 n)
 {
-	t_i64 n__;
+	t_i64	n__;
 
 	n__ = n;
 	if (n__ >= 0)
