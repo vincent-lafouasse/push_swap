@@ -1,5 +1,5 @@
 #include "deque/t_int_deque.h"
-#include "sort.h"
+#include "sort_internals.h"
 
 static void split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_deque* ops);
 static void append_binary_buckets(t_stacks* stacks, t_int_deque* ops);
