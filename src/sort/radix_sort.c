@@ -5,22 +5,22 @@ static void split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_de
 static void append_binary_buckets(t_stacks* stacks, t_int_deque* ops);
 static size_t n_bits(uint32_t n);
 
-t_int_deque radix_sort(t_stacks* stacks)
+t_error radix_sort(t_stacks* stacks, t_int_deque* ops_out)
 {
-	t_int_deque operations = deque_new();
-
+	if (!stacks || !ops_out)
+		return ERROR_NULL_OUT_PARAM;
 	size_t bit_depth = n_bits(stacks->a.sz);
 	size_t i = 0;
 	while (i < bit_depth)
 	{
 		if (deque_is_sorted(stacks->a))
 			break;
-		split_binary_buckets(stacks, i, &operations);
-		append_binary_buckets(stacks, &operations);
+		split_binary_buckets(stacks, i, ops_out);
+		append_binary_buckets(stacks, ops_out);
 		i++;
 	}
 
-	return operations;
+	return NO_ERROR;
 }
 
 static void split_binary_buckets(t_stacks* stacks, size_t bit_position, t_int_deque* ops)
