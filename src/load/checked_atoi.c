@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:30:56 by poss              #+#    #+#             */
-/*   Updated: 2024/08/13 23:31:00 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/13 23:50:55 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,11 @@ t_opt_int	checked_atoi(const char *s)
 
 static t_u32	ft_abs(t_i32 n)
 {
-	if (n >= 0)
-		return (n);
+	t_i64 n__;
+
+	n__ = n;
+	if (n__ >= 0)
+		return (n__);
 	else
-		return (-n);
+		return (-n__);
 }

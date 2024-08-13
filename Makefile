@@ -10,7 +10,7 @@ DEPS := $(OBJS:.o=.d)
 
 CC        = cc
 CFLAGS    = -Wall -Wextra -g3
-#CFLAGS   += -Werror
+CFLAGS   += -Werror
 CPPFLAGS  = -I$(INCLUDE_DIR)
 CPPFLAGS += -MMD -MP
 
@@ -85,9 +85,10 @@ CPPCHECKFLAGS  = --language=c
 CPPCHECKFLAGS += --cppcheck-build-dir=build
 CPPCHECKFLAGS += --project=build/compile_commands.json
 .PHONY: check
-check: update
+check:
 	cppcheck $(CPPCHECKFLAGS)
-	# norminette $(SRC_DIR)
+	norminette $(SRC_DIR)
+	norminette lib
 
 # aliases
 .PHONY: b c u r t vt

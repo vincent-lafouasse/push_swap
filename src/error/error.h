@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:31:42 by poss              #+#    #+#             */
-/*   Updated: 2024/08/13 23:31:42 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/13 23:47:56 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,4 @@
 #include <stdbool.h>
 
 void	die(const char *msg);
-void	assert(bool assertion, const char *msg);
+void	ft_assert(bool assertion, const char *msg);
