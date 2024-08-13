@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:31:19 by poss              #+#    #+#             */
-/*   Updated: 2024/08/13 23:31:19 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/13 23:42:06 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include "stack/t_stacks.h"
 
 #define VERBOSE true
-#define EXIT_SUCCESS 0
 
 static void	clear(t_stacks *stacks, t_int_deque *operations);
 static void	clear_and_die(t_stacks *stacks, t_int_deque *operations,
@@ -30,7 +29,7 @@ int	main(int ac, char **av)
 	t_error		err;
 
 	if (ac == 1)
-		return (EXIT_SUCCESS);
+		return (0);
 	err = load_stacks((const char **)av + 1, ac - 1, &stacks);
 	if (err != NO_ERROR)
 		clear_and_die(NULL, NULL, err);
