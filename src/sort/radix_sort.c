@@ -12,6 +12,7 @@ t_error radix_sort(t_stacks* stacks, t_int_deque* ops_out)
 	size_t bit_depth = n_bits(stacks->a.sz);
 	size_t i = 0;
 	t_error err;
+	*ops_out = deque_new();
 	while (i < bit_depth)
 	{
 		if (deque_is_sorted(stacks->a))
