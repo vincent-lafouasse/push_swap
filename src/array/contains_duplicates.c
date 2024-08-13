@@ -6,18 +6,16 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:29:39 by poss              #+#    #+#             */
-/*   Updated: 2024/08/13 23:29:40 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/13 23:39:29 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "array_operations.h"
-#include <assert.h>
 
 bool	sorted_array_contains_duplicates(const t_i32 *sorted_array, size_t len)
 {
 	size_t	i;
 
-	assert(array_is_sorted(sorted_array, len));
 	i = 0;
 	while (i < len - 1)
 	{
