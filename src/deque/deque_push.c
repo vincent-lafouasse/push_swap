@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   deque_push.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 23:30:30 by poss              #+#    #+#             */
+/*   Updated: 2024/08/13 23:30:31 by poss             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "t_int_deque.h"
 
 void	deque_push_front_link(t_int_deque *dq, t_int_list *link)
@@ -6,7 +18,8 @@ void	deque_push_front_link(t_int_deque *dq, t_int_list *link)
 		return ;
 	if (dq->sz == 0)
 	{
-		dq->head = dq->tail = link;
+		dq->head = link;
+		dq->tail = link;
 		dq->sz++;
 		return ;
 	}
@@ -23,7 +36,8 @@ void	deque_push_back_link(t_int_deque *dq, t_int_list *link)
 		return ;
 	if (dq->sz == 0)
 	{
-		dq->head = dq->tail = link;
+		dq->head = link;
+		dq->tail = link;
 		dq->sz++;
 		return ;
 	}

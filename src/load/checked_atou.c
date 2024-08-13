@@ -1,9 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checked_atou.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/13 23:31:05 by poss              #+#    #+#             */
+/*   Updated: 2024/08/13 23:31:05 by poss             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft/ctype.h"
 #include "libft/string.h"
 #include "load_internals.h"
-#include <stdio.h> // careful my dude
 
-const char	*STR_U32_MAX = "4294967295";
+#define STR_U32_MAX "4294967295"
 
 static bool	str_is_all_numbers(const char *s);
 static bool	will_overflow_u32(const char *s);

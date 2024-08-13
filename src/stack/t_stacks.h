@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:03:19 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/08/08 13:26:08 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/13 23:27:29 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,18 @@ struct					s_stacks
 
 typedef enum e_operation
 {
+	NULL_OP,
 	OP_SWAP_A,
 	OP_SWAP_B,
 	OP_SWAP_BOTH,
-
 	OP_PUSH_ONTO_A,
 	OP_PUSH_ONTO_B,
-
 	OP_ROTATE_A,
 	OP_ROTATE_B,
 	OP_ROTATE_BOTH,
-
 	OP_RROTATE_A,
 	OP_RROTATE_B,
 	OP_RROTATE_BOTH,
-
-	NULL_OP
 }						t_operation;
 
 void					swap_a(t_stacks *stacks);
