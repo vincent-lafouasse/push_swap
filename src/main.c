@@ -3,7 +3,6 @@
 #include "load/load.h"
 #include "error/error.h"
 #include "output/output.h"
-#include "optimization/optimize.h"
 
 #define VERBOSE true
 #define EXIT_SUCCESS 0
@@ -26,7 +25,6 @@ int	main(int ac, char** av)
 	if (err != NO_ERROR)
 		clear_and_die(&stacks, NULL, err);
 	operations = sort(&stacks);
-	optimize(&operations);
 	output_operation_list(operations);
 	clear(&stacks, &operations);
 }
