@@ -24,7 +24,9 @@ int	main(int ac, char** av)
 	err = simplify_verify(&stacks.a);
 	if (err != NO_ERROR)
 		clear_and_die(&stacks, NULL, err);
-	operations = sort(&stacks);
+	err = sort(&stacks, &operations);
+	if (err != NO_ERROR)
+		clear_and_die(&stacks, &operations, err);
 	output_operation_list(operations);
 	clear(&stacks, &operations);
 }
