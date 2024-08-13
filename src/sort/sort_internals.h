@@ -1,8 +1,7 @@
 #pragma once
 
-#include "sort.h"
+#include "stack/t_stacks.h"
+#include "error/t_error.h"
 
-t_int_deque radix_sort(t_stacks* stacks);
-t_int_deque sort2(t_stacks* stacks);
-t_int_deque sort3(t_stacks* stacks);
-t_int_deque sort5(t_stacks* stacks);
+t_error radix_sort(t_stacks* stacks, t_int_deque* ops_out);
+t_error sort2(t_stacks* stacks, t_int_deque* ops_out);
