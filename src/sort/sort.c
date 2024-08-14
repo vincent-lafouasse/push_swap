@@ -22,8 +22,8 @@ t_error	sort(t_stacks *stacks, t_int_deque *ops_out)
 		return (NO_ERROR);
 	}
 	if (stacks->a.sz == 2)
-		return sort2(stacks, ops_out);
+		return (sort2(stacks, ops_out));
 	if (stacks->a.sz == 3)
-		return sort3(stacks, ops_out);
+		return (sort3(stacks, ops_out));
 	return (radix_sort(stacks, ops_out));
 }

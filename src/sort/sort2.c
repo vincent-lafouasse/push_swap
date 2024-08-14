@@ -21,9 +21,8 @@ t_error	sort2(t_stacks *stacks, t_int_deque *ops_out)
 	{
 		return (NO_ERROR);
 	}
-    if (deque_push_front(ops_out, OP_SWAP_A))
-        return NO_ERROR;
-    else
-		return ERROR_OOM;
-
+	if (deque_push_front(ops_out, OP_SWAP_A))
+		return (NO_ERROR);
+	else
+		return (ERROR_OOM);
 }
