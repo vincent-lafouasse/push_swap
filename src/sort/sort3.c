@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:49:07 by poss              #+#    #+#             */
-/*   Updated: 2024/08/14 22:11:06 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/14 23:55:01 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #define NEEDS_ROTATE 1
 #define NEEDS_RROTATE -1
-#define ALREADY_SORTED 0
+#define NOT_SOLVED_BY_ROTATE 0
 
 static int	try_rotate(t_stacks *stacks)
 {
@@ -32,7 +32,7 @@ static int	try_rotate(t_stacks *stacks)
 		return (NEEDS_RROTATE);
 	}
 	rotate_a(stacks);
-	return (ALREADY_SORTED);
+	return (NOT_SOLVED_BY_ROTATE);
 }
 
 static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
@@ -52,6 +52,8 @@ static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
 
 t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
 {
+	if (!stacks || !ops_out)
+		return ERROR_NULL_OUT_PARAM;
 	*ops_out = deque_new();
 	if (deque_is_sorted(stacks->a))
 		return (NO_ERROR);
