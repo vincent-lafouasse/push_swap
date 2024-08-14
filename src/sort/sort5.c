@@ -6,42 +6,42 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 23:52:33 by poss              #+#    #+#             */
-/*   Updated: 2024/08/15 00:15:07 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 00:16:06 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort_internals.h"
 #include <limits.h>
 
-int find_smallest(const t_int_deque* dq)
+int find_min(const t_int_deque* dq)
 {
 	int i;
-	int smallest;
-	int index_of_smallest;
+	int min;
+	int index_of_min;
 	t_int_list* current;
 
 	if (!dq || dq->sz == 0)
 		return -1;
-	smallest = INT_MAX;
+	min = INT_MAX;
 	i = 0;
-	index_of_smallest = -1;
+	index_of_min = -1;
 	current = dq->head;
 	while (current)
 	{
-		if (current->val < smallest)
+		if (current->val < min)
 		{
-			index_of_smallest = i;
-			smallest = current->val;
+			index_of_min = i;
+			min = current->val;
 		}
 		current = current->next;
 		i++;
 	}
-	return index_of_smallest;
+	return index_of_min;
 }
 
 void move_top_element(t_stacks *stacks, t_int_deque *ops_out)
 {
-	int index_of_min = find_smallest(&stacks->a);
+	int index_of_min = find_min(&stacks->a);
 	int i = 0;
 
 	if (index_of_min == -1)
