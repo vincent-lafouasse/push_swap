@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:49:07 by poss              #+#    #+#             */
-/*   Updated: 2024/08/14 22:03:07 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/14 22:06:10 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
 	*ops_out = deque_new();
 	if (deque_is_sorted(stacks->a))
 		return NO_ERROR;
-	if (try_rotate(stacks) < 0)
-		return fill_ops(OP_ROTATE_A, NULL_OP, ops_out);
 	if (try_rotate(stacks) > 0)
+		return fill_ops(OP_ROTATE_A, NULL_OP, ops_out);
+	if (try_rotate(stacks) < 0)
 		return fill_ops(OP_RROTATE_A, NULL_OP, ops_out);
 	swap_a(stacks);
-	if (try_rotate(stacks) < 0)
+	if (try_rotate(stacks) > 0)
 		return fill_ops(OP_SWAP_A, OP_ROTATE_A, ops_out);
 	else
 		return fill_ops(OP_SWAP_A, OP_RROTATE_A, ops_out);
