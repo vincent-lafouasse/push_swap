@@ -49,7 +49,7 @@ TEST(AtoU, Valid)
 
     opt = checked_atou(I32_MAX_STR.c_str());
     assert_opt_ok(opt, INT32_MAX);
-    
+
     opt = checked_atou(U32_MAX_STR.c_str());
     assert_opt_ok(opt, UINT32_MAX);
 }
@@ -84,16 +84,16 @@ TEST(AtoU, Overflow)
 {
     t_opt_uint opt;
 
-    opt = checked_atou("4294967296"); // U32_MAX + 1
+    opt = checked_atou("4294967296");  // U32_MAX + 1
     assert_opt_none(opt);
 
-    opt = checked_atou("4294967305"); // U32_MAX + 10
+    opt = checked_atou("4294967305");  // U32_MAX + 10
     assert_opt_none(opt);
 
-    opt = checked_atou("9994967305"); // same n digits but bigger
+    opt = checked_atou("9994967305");  // same n digits but bigger
     assert_opt_none(opt);
 
-    opt = checked_atou("429496729600"); // more digits
+    opt = checked_atou("429496729600");  // more digits
     assert_opt_none(opt);
 }
 
@@ -122,7 +122,6 @@ TEST(AtoI, Valid)
     opt = checked_atoi("-420");
     assert_opt_ok(opt, -420);
 }
-
 
 TEST(AtoI, NotANumber)
 {
@@ -154,9 +153,9 @@ TEST(AtoI, OverflowUnderflow)
     opt = checked_atoi(("-" + U32_MAX_STR).c_str());
     assert_opt_none(opt);
 
-    opt = checked_atoi("-2147483649"); // I32 min - 1
+    opt = checked_atoi("-2147483649");  // I32 min - 1
     assert_opt_none(opt);
 
-    opt = checked_atoi("2147483648"); // I32 max + 1
+    opt = checked_atoi("2147483648");  // I32 max + 1
     assert_opt_none(opt);
 }

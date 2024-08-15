@@ -26,6 +26,7 @@ set(deque_src
   deque_rotate.c
   deque_size.c
   deque_deep_copy.c
+  deque_find_min.c
   list_new.c
   t_int_deque.h
 )

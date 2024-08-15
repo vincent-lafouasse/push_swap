@@ -53,7 +53,7 @@ static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
 t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
 {
 	if (!stacks || !ops_out)
-		return ERROR_NULL_OUT_PARAM;
+		return (ERROR_NULL_OUT_PARAM);
 	*ops_out = deque_new();
 	if (deque_is_sorted(stacks->a))
 		return (NO_ERROR);
