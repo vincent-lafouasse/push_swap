@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:49:07 by poss              #+#    #+#             */
-/*   Updated: 2024/08/14 23:55:01 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 19:45:57 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
 {
 	if (!ops_out)
 		return (ERROR_NULL_OUT_PARAM);
+	*ops_out = deque_new();
 	if (op1 == NULL_OP)
 		return (NO_ERROR);
 	if (deque_push_back(ops_out, op1) == false)
@@ -54,7 +55,6 @@ t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
 {
 	if (!stacks || !ops_out)
 		return (ERROR_NULL_OUT_PARAM);
-	*ops_out = deque_new();
 	if (deque_is_sorted(stacks->a))
 		return (NO_ERROR);
 	if (try_rotate(stacks) == NEEDS_ROTATE)
