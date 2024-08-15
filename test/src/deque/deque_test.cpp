@@ -176,7 +176,7 @@ TEST(Deque, FindMin)
     Vector src = {69, 420, 0, -42, 69};
     t_int_deque dq = deque_from_vec(src);
     assert_deque_eq(dq, src);
-    ASSERT_EQ(deque_find_min(&dq), 2);
+    ASSERT_EQ(deque_find_min(&dq), 3);
     deque_clear(&dq);
 
     src = {5, 4, 3, 2, 1, 0};
