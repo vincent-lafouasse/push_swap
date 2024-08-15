@@ -12,16 +12,16 @@
 
 #include "sort_internals.h"
 
-static t_error	rotate_n_times(size_t n, t_stacks *stacks, t_int_deque *ops_out);
+static t_error	rotate_n_times(size_t n, t_stacks *stacks,
+					t_int_deque *ops_out);
 static t_error	reverse_rotate_n_times(size_t n, t_stacks *stacks,
-			t_int_deque *ops_out);
-
+					t_int_deque *ops_out);
 
 t_error	move_top_element(t_stacks *stacks, t_int_deque *ops_out)
 {
-	int	index_of_min;
-	int	i;
-	t_error err;
+	int		index_of_min;
+	int		i;
+	t_error	err;
 
 	index_of_min = deque_find_min(&stacks->a);
 	i = 0;
@@ -31,17 +31,17 @@ t_error	move_top_element(t_stacks *stacks, t_int_deque *ops_out)
 	{
 		err = rotate_n_times(index_of_min, stacks, ops_out);
 		if (err != NO_ERROR)
-			return err;
+			return (err);
 	}
 	else
 	{
 		err = reverse_rotate_n_times(index_of_min, stacks, ops_out);
 		if (err != NO_ERROR)
-			return err;
+			return (err);
 	}
 	push_b(stacks);
 	if (deque_push_back(ops_out, OP_PUSH_ONTO_B) == false)
-		return ERROR_OOM;
+		return (ERROR_OOM);
 	return (NO_ERROR);
 }
 
@@ -51,21 +51,21 @@ static t_error	rotate_n_times(size_t n, t_stacks *stacks, t_int_deque *ops_out)
 	{
 		rotate_a(stacks);
 		if (deque_push_back(ops_out, OP_ROTATE_A) == false)
-			return ERROR_OOM;
+			return (ERROR_OOM);
 		n--;
 	}
-	return NO_ERROR;
+	return (NO_ERROR);
 }
 
 static t_error	reverse_rotate_n_times(size_t n, t_stacks *stacks,
-			t_int_deque *ops_out)
+		t_int_deque *ops_out)
 {
 	while (n)
 	{
 		rrotate_a(stacks);
 		if (deque_push_back(ops_out, OP_RROTATE_A) == false)
-			return ERROR_OOM;
+			return (ERROR_OOM);
 		n--;
 	}
-	return NO_ERROR;
+	return (NO_ERROR);
 }
