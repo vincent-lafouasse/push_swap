@@ -6,39 +6,66 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:49:07 by poss              #+#    #+#             */
-/*   Updated: 2024/08/14 23:55:01 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 20:02:59 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft/string.h"
 #include "sort_internals.h"
 
-#define NEEDS_ROTATE 1
-#define NEEDS_RROTATE -1
-#define NOT_SOLVED_BY_ROTATE 0
+static bool		stack_is_like(const char *pattern, const t_stacks *stacks);
+static t_error	fill_ops(t_operation op1, t_operation op2,
+					t_int_deque *ops_out);
 
-static int	try_rotate(t_stacks *stacks)
+/*
+123 -> no op
+312 -> ra
+231 -> rra
+213 -> sa
+132 -> sa ra
+321 -> sa rra
+*/
+
+t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
 {
-	rotate_a(stacks);
-	if (deque_is_sorted(stacks->a))
-	{
-		rrotate_a(stacks);
-		return (NEEDS_ROTATE);
-	}
-	rrotate_a(stacks);
-	rrotate_a(stacks);
-	if (deque_is_sorted(stacks->a))
-	{
-		rotate_a(stacks);
-		return (NEEDS_RROTATE);
-	}
-	rotate_a(stacks);
-	return (NOT_SOLVED_BY_ROTATE);
+	if (!stacks || !ops_out)
+		return (ERROR_NULL_OUT_PARAM);
+	if (stack_is_like("123", stacks))
+		return (fill_ops(NULL_OP, NULL_OP, ops_out));
+	else if (stack_is_like("312", stacks))
+		return (fill_ops(OP_ROTATE_A, NULL_OP, ops_out));
+	else if (stack_is_like("231", stacks))
+		return (fill_ops(OP_RROTATE_A, NULL_OP, ops_out));
+	else if (stack_is_like("213", stacks))
+		return (fill_ops(OP_SWAP_A, NULL_OP, ops_out));
+	else if (stack_is_like("132", stacks))
+		return (fill_ops(OP_SWAP_A, OP_ROTATE_A, ops_out));
+	else if (stack_is_like("321", stacks))
+		return (fill_ops(OP_SWAP_A, OP_RROTATE_A, ops_out));
+	else
+		return (ERROR_UNREACHABLE);
+}
+
+static bool	stack_is_like(const char *pattern, const t_stacks *stacks)
+{
+	int	max_index;
+	int	min_index;
+
+	if (!stacks || !pattern)
+		return (false);
+	if (!ft_strchr(pattern, '1') || !ft_strchr(pattern, '3'))
+		return (false);
+	min_index = ft_strchr(pattern, '1') - pattern;
+	max_index = ft_strchr(pattern, '3') - pattern;
+	return (deque_find_max(&stacks->a) == max_index)
+		&& (deque_find_min(&stacks->a) == min_index);
 }
 
 static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
 {
 	if (!ops_out)
 		return (ERROR_NULL_OUT_PARAM);
+	*ops_out = deque_new();
 	if (op1 == NULL_OP)
 		return (NO_ERROR);
 	if (deque_push_back(ops_out, op1) == false)
@@ -48,24 +75,4 @@ static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
 	if (deque_push_back(ops_out, op2) == false)
 		return (ERROR_OOM);
 	return (NO_ERROR);
-}
-
-t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
-{
-	if (!stacks || !ops_out)
-		return (ERROR_NULL_OUT_PARAM);
-	*ops_out = deque_new();
-	if (deque_is_sorted(stacks->a))
-		return (NO_ERROR);
-	if (try_rotate(stacks) == NEEDS_ROTATE)
-		return (fill_ops(OP_ROTATE_A, NULL_OP, ops_out));
-	if (try_rotate(stacks) == NEEDS_RROTATE)
-		return (fill_ops(OP_RROTATE_A, NULL_OP, ops_out));
-	swap_a(stacks);
-	if (deque_is_sorted(stacks->a))
-		return (fill_ops(OP_SWAP_A, NULL_OP, ops_out));
-	if (try_rotate(stacks) == NEEDS_ROTATE)
-		return (fill_ops(OP_SWAP_A, OP_ROTATE_A, ops_out));
-	else
-		return (fill_ops(OP_SWAP_A, OP_RROTATE_A, ops_out));
 }
