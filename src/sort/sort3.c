@@ -6,11 +6,12 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:49:07 by poss              #+#    #+#             */
-/*   Updated: 2024/08/15 19:48:43 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 19:54:42 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "sort_internals.h"
+#include "libft/string.h"
 
 #define NEEDS_ROTATE 1
 #define NEEDS_RROTATE -1
@@ -35,6 +36,8 @@ static int	try_rotate(t_stacks *stacks)
 	return (NOT_SOLVED_BY_ROTATE);
 }
 
+static bool stack_is_like(const char* pattern, const t_stacks* stacks);
+
 static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out);
 
 t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
@@ -54,6 +57,20 @@ t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
 		return (fill_ops(OP_SWAP_A, OP_ROTATE_A, ops_out));
 	else
 		return (fill_ops(OP_SWAP_A, OP_RROTATE_A, ops_out));
+}
+
+static bool stack_is_like(const char* pattern, const t_stacks* stacks)
+{
+	int max_index;
+	int min_index;
+
+	if (!stacks || !pattern)
+		return false;
+	if (!ft_strchr(pattern, '0') || !ft_strchr(pattern, '2'))
+		return false;
+	max_index = ft_strchr(pattern, '2') - pattern;
+	min_index = ft_strchr(pattern, '0') - pattern;
+	return (deque_find_max(stacks->a) == max_index);
 }
 
 static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
