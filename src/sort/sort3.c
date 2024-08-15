@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:49:07 by poss              #+#    #+#             */
-/*   Updated: 2024/08/15 19:54:42 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 19:56:40 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ static bool stack_is_like(const char* pattern, const t_stacks* stacks)
 		return false;
 	max_index = ft_strchr(pattern, '2') - pattern;
 	min_index = ft_strchr(pattern, '0') - pattern;
-	return (deque_find_max(stacks->a) == max_index);
+	return (deque_find_max(&stacks->a) == max_index) &&
+	(deque_find_min(&stacks->a) == min_index);
 }
 
 static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
