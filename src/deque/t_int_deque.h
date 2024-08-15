@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/08/15 12:59:24 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 13:30:47 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,4 @@ void						deque_sort(t_int_deque *dq);
 bool						deque_is_sorted(t_int_deque dq);
 t_i32						*deque_copy_into_array(const t_int_deque dq);
 int							deque_find_min(const t_int_deque *dq);
+int							deque_find_max(const t_int_deque *dq);
