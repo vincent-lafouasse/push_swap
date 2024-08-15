@@ -170,3 +170,21 @@ TEST(Deque, DeepCopy)
     ASSERT_NE(src_dq.tail, copy.tail);
     assert_deque_eq(copy, src_vec);
 }
+
+TEST(Deque, FindMin)
+{
+    Vector src = {69, 420, 0, -42, 69};
+    t_int_deque dq = deque_from_vec(src);
+    assert_deque_eq(dq, src);
+    ASSERT_EQ(deque_find_min(&dq), 2);
+    deque_clear(&dq);
+
+    src = {5, 4, 3, 2, 1, 0};
+    dq = deque_from_vec(src);
+    assert_deque_eq(dq, src);
+    ASSERT_EQ(deque_find_min(&dq), 5);
+    deque_clear(&dq);
+
+    dq = deque_new();
+    ASSERT_EQ(deque_find_min(&dq), -1);
+}
