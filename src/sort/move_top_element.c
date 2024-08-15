@@ -12,8 +12,9 @@
 
 #include "sort_internals.h"
 
-t_error rotate_n_times(size_t n, t_stacks *stacks, t_int_deque *ops_out);
-t_error reverse_rotate_n_times(size_t n, t_stacks *stacks, t_int_deque *ops_out);
+t_error	rotate_n_times(size_t n, t_stacks *stacks, t_int_deque *ops_out);
+t_error	reverse_rotate_n_times(size_t n, t_stacks *stacks,
+			t_int_deque *ops_out);
 
 t_error	move_top_element(t_stacks *stacks, t_int_deque *ops_out)
 {
@@ -23,7 +24,7 @@ t_error	move_top_element(t_stacks *stacks, t_int_deque *ops_out)
 	index_of_min = deque_find_min(&stacks->a);
 	i = 0;
 	if (index_of_min == -1)
-		return ERROR_ELEMENT_NOT_FOUND;
+		return (ERROR_ELEMENT_NOT_FOUND);
 	if (index_of_min < (int)stacks->a.sz - index_of_min)
 	{
 		while (i < index_of_min)
@@ -39,5 +40,5 @@ t_error	move_top_element(t_stacks *stacks, t_int_deque *ops_out)
 	}
 	push_b(stacks);
 	// signal push b
-	return NO_ERROR;
+	return (NO_ERROR);
 }

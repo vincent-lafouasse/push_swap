@@ -17,14 +17,14 @@ t_error	move_top_elements(t_stacks *stacks, t_int_deque *ops_out)
 	size_t	n_elements_to_move;
 
 	if (!stacks || !ops_out)
-		return ERROR_NULL_OUT_PARAM;
+		return (ERROR_NULL_OUT_PARAM);
 	n_elements_to_move = stacks->a.sz - 3;
 	while (n_elements_to_move)
 	{
 		move_top_element(stacks, ops_out);
 		n_elements_to_move--;
 	}
-	return NO_ERROR;
+	return (NO_ERROR);
 }
 
 t_error	sort5(t_stacks *stacks, t_int_deque *ops_out)
