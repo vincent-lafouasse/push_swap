@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:29:16 by poss              #+#    #+#             */
-/*   Updated: 2024/08/15 12:58:32 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 20:21:38 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,3 +19,6 @@ t_error	radix_sort(t_stacks *stacks, t_int_deque *ops_out);
 t_error	sort2(t_stacks *stacks, t_int_deque *ops_out);
 t_error	sort3(t_stacks *stacks, t_int_deque *ops_out);
 t_error	sort5(t_stacks *stacks, t_int_deque *ops_out);
+
+// sort5 internals
+void	move_top_element(t_stacks *stacks, t_int_deque *ops_out);
