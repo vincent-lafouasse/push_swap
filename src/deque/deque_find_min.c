@@ -13,15 +13,15 @@
 #include "t_int_deque.h"
 #include <limits.h>
 
-int deque_find_min(const t_int_deque* dq)
+int	deque_find_min(const t_int_deque *dq)
 {
-	int i;
-	int min;
-	int index_of_min;
-	t_int_list* current;
+	int			i;
+	int			min;
+	int			index_of_min;
+	t_int_list	*current;
 
 	if (!dq || dq->sz == 0)
-		return -1;
+		return (-1);
 	min = INT_MAX;
 	i = 0;
 	index_of_min = -1;
@@ -36,5 +36,5 @@ int deque_find_min(const t_int_deque* dq)
 		current = current->next;
 		i++;
 	}
-	return index_of_min;
+	return (index_of_min);
 }

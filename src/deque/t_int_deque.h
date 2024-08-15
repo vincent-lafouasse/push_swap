@@ -53,4 +53,4 @@ void						deque_clear(t_int_deque *dq);
 void						deque_sort(t_int_deque *dq);
 bool						deque_is_sorted(t_int_deque dq);
 t_i32						*deque_copy_into_array(const t_int_deque dq);
-int				deque_find_min(const t_int_deque* dq);
+int							deque_find_min(const t_int_deque *dq);
