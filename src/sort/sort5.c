@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 23:52:33 by poss              #+#    #+#             */
-/*   Updated: 2024/08/15 20:27:31 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 20:38:21 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,19 @@ t_error	move_top_elements(t_stacks *stacks, t_int_deque *ops_out)
 
 t_error	sort5(t_stacks *stacks, t_int_deque *ops_out)
 {
-	t_int_deque	*sort3_operations;
+	t_int_deque	sort3_operations;
+	t_error		err;
 
 	if (!stacks || !ops_out)
 		return (ERROR_NULL_OUT_PARAM);
 	*ops_out = deque_new();
 	if (deque_is_sorted(stacks->a))
 		return (NO_ERROR);
+	err = move_top_elements(stacks, ops_out);
+	if (err != NO_ERROR)
+		return (err);
+	err = sort3(stacks, &sort3_operations);
+	if (err != NO_ERROR)
+		return (err);
 	return (NO_ERROR);
 }
