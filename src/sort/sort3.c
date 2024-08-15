@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/14 21:49:07 by poss              #+#    #+#             */
-/*   Updated: 2024/08/15 20:02:59 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/15 20:04:39 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,7 @@ t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
 		return (fill_ops(OP_SWAP_A, OP_ROTATE_A, ops_out));
 	else if (stack_is_like("321", stacks))
 		return (fill_ops(OP_SWAP_A, OP_RROTATE_A, ops_out));
-	else
-		return (ERROR_UNREACHABLE);
+	return (ERROR_UNREACHABLE);
 }
 
 static bool	stack_is_like(const char *pattern, const t_stacks *stacks)
