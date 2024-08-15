@@ -10,11 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "sort_internals.h"
 #include "libft/string.h"
+#include "sort_internals.h"
 
-static bool stack_is_like(const char* pattern, const t_stacks* stacks);
-static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out);
+static bool		stack_is_like(const char *pattern, const t_stacks *stacks);
+static t_error	fill_ops(t_operation op1, t_operation op2,
+					t_int_deque *ops_out);
 
 /*
 123 -> no op
@@ -30,34 +31,34 @@ t_error	sort3(t_stacks *stacks, t_int_deque *ops_out)
 	if (!stacks || !ops_out)
 		return (ERROR_NULL_OUT_PARAM);
 	if (stack_is_like("123", stacks))
-		return fill_ops(NULL_OP, NULL_OP, ops_out);
+		return (fill_ops(NULL_OP, NULL_OP, ops_out));
 	else if (stack_is_like("312", stacks))
-		return fill_ops(OP_ROTATE_A, NULL_OP, ops_out);
+		return (fill_ops(OP_ROTATE_A, NULL_OP, ops_out));
 	else if (stack_is_like("231", stacks))
-		return fill_ops(OP_RROTATE_A, NULL_OP, ops_out);
+		return (fill_ops(OP_RROTATE_A, NULL_OP, ops_out));
 	else if (stack_is_like("213", stacks))
-		return fill_ops(OP_SWAP_A, NULL_OP, ops_out);
+		return (fill_ops(OP_SWAP_A, NULL_OP, ops_out));
 	else if (stack_is_like("132", stacks))
-		return fill_ops(OP_SWAP_A, OP_ROTATE_A, ops_out);
+		return (fill_ops(OP_SWAP_A, OP_ROTATE_A, ops_out));
 	else if (stack_is_like("321", stacks))
-		return fill_ops(OP_SWAP_A, OP_RROTATE_A, ops_out);
+		return (fill_ops(OP_SWAP_A, OP_RROTATE_A, ops_out));
 	else
 		return (ERROR_UNREACHABLE);
 }
 
-static bool stack_is_like(const char* pattern, const t_stacks* stacks)
+static bool	stack_is_like(const char *pattern, const t_stacks *stacks)
 {
-	int max_index;
-	int min_index;
+	int	max_index;
+	int	min_index;
 
 	if (!stacks || !pattern)
-		return false;
+		return (false);
 	if (!ft_strchr(pattern, '1') || !ft_strchr(pattern, '3'))
-		return false;
+		return (false);
 	min_index = ft_strchr(pattern, '1') - pattern;
 	max_index = ft_strchr(pattern, '3') - pattern;
-	return (deque_find_max(&stacks->a) == max_index) &&
-	(deque_find_min(&stacks->a) == min_index);
+	return (deque_find_max(&stacks->a) == max_index)
+		&& (deque_find_min(&stacks->a) == min_index);
 }
 
 static t_error	fill_ops(t_operation op1, t_operation op2, t_int_deque *ops_out)
