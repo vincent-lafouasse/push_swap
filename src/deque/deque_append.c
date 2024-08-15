@@ -12,7 +12,7 @@
 
 #include "t_int_deque.h"
 
-void deque_append(t_int_deque* dst, t_int_deque* src)
+void	deque_append(t_int_deque *dst, t_int_deque *src)
 {
 	if (!dst || !src)
 		return ;
