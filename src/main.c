@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:31:19 by poss              #+#    #+#             */
-/*   Updated: 2024/08/13 23:42:06 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/16 13:18:13 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	main(int ac, char **av)
 		return (0);
 	err = load_stacks((const char **)av + 1, ac - 1, &stacks);
 	if (err != NO_ERROR)
-		clear_and_die(NULL, NULL, err);
+		clear_and_die(&stacks, NULL, err);
 	err = simplify_verify(&stacks.a);
 	if (err != NO_ERROR)
 		clear_and_die(&stacks, NULL, err);
