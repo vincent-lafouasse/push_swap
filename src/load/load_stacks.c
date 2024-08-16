@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:31:11 by poss              #+#    #+#             */
-/*   Updated: 2024/08/13 23:31:12 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/16 16:08:43 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,8 @@ t_error	load_stacks(const char **numbers, int len, t_stacks *out)
 	{
 		return (NO_ERROR);
 	}
-	return (load_stacks_from_string(numbers[0], out));
+	if (len == 1)
+		return (load_stacks_from_string(numbers[0], out));
+	else
+		return (ERROR_NOT_A_NUMBER);
 }
