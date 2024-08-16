@@ -5,12 +5,12 @@ BUILD_DIR = build
 INCLUDE_DIR = src
 
 __SRCS = main.c
-__SRCS += sort/sort.c sort/simplify.c sort/radix_sort.c sort/sort5.c sort/sort3.c sort/sort2.c sort/move_top_element.c
-__SRCS += array/contains_duplicates.c array/array_is_sorted.c array/index_of.c array/array_sort.c
-__SRCS += output/output_operation_list.c
-__SRCS += deque/deque_find_min.c deque/deque_is_sorted.c deque/deque_pop.c deque/deque_size.c deque/list_new.c deque/deque_clear.c deque/deque_new.c deque/deque_sort.c deque/deque_push.c deque/deque_peek.c deque/deque_append.c deque/deque_find_max.c deque/deque_deep_copy.c deque/deque_rotate.c
 __SRCS += load/load_stacks_from_string.c load/checked_atoi.c load/checked_atou.c load/load_stacks_from_strings.c load/load_stacks.c load/optionals.c
 __SRCS += stack/stack_push.c stack/stack_rotate.c stack/stack_rrotate.c stack/stack_swap.c
+__SRCS += sort/sort.c sort/simplify.c sort/radix_sort.c sort/sort5.c sort/sort3.c sort/sort2.c sort/move_top_element.c
+__SRCS += output/output_operation_list.c
+__SRCS += array/contains_duplicates.c array/array_is_sorted.c array/index_of.c array/array_sort.c
+__SRCS += deque/deque_find_min.c deque/deque_is_sorted.c deque/deque_pop.c deque/deque_size.c deque/list_new.c deque/deque_clear.c deque/deque_new.c deque/deque_sort.c deque/deque_push.c deque/deque_peek.c deque/deque_append.c deque/deque_find_max.c deque/deque_deep_copy.c deque/deque_rotate.c
 __SRCS += error/die.c error/error_repr.c
 
 SRCS = $(addprefix src/, $(__SRCS))
