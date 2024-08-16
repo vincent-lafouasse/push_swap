@@ -16,13 +16,13 @@
 #include <stdlib.h>
 
 static int	string_array_len(const char **strs);
-static void free_string_array(char** strs);
+static void	free_string_array(char **strs);
 
 t_error	load_stacks_from_string(const char *numbers, t_stacks *out)
 {
 	char	**split_numbers;
 	int		sz;
-	t_error err;
+	t_error	err;
 
 	if (numbers[0] == '\0')
 	{
@@ -36,10 +36,10 @@ t_error	load_stacks_from_string(const char *numbers, t_stacks *out)
 	sz = string_array_len((const char **)split_numbers);
 	err = load_stacks_from_strings((const char **)split_numbers, sz, out);
 	free_string_array(split_numbers);
-	return err;
+	return (err);
 }
 
-static void free_string_array(char** strs)
+static void	free_string_array(char **strs)
 {
 	if (!strs)
 		return ;

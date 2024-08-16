@@ -12,9 +12,10 @@
 
 #include "load_internals.h"
 
-t_error	load_stacks_from_strings(const char **numbers, int len, t_stacks *stacks_out)
+t_error	load_stacks_from_strings(const char **numbers, int len,
+		t_stacks *stacks_out)
 {
-	int			i;
+	int	i;
 
 	if (numbers == NULL || stacks_out == NULL)
 		return (ERROR_NULL_OUT_PARAM);
@@ -25,7 +26,8 @@ t_error	load_stacks_from_strings(const char **numbers, int len, t_stacks *stacks
 	{
 		if (checked_atoi(numbers[i]).is_valid == false)
 			return (ERROR_NOT_A_NUMBER);
-		if (deque_push_back(&stacks_out->a, checked_atoi(numbers[i]).val) == false)
+		if (deque_push_back(&stacks_out->a,
+				checked_atoi(numbers[i]).val) == false)
 			return (ERROR_OOM);
 		i++;
 	}
