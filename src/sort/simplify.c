@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:29:20 by poss              #+#    #+#             */
-/*   Updated: 2024/08/16 13:25:53 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/16 13:27:47 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,8 @@ static t_error	simplify(t_int_deque *dq, const t_i32 *sorted)
 		index = index_of(current->val, sorted, dq->sz);
 		if (index < 0)
 			return (deque_clear(&out), ERROR_ELEMENT_NOT_FOUND);
-		deque_push_back(&out, index);
+		if (deque_push_back(&out, index) == false)
+			return (deque_clear(&out), ERROR_OOM);
 		current = current->next;
 	}
 	deque_clear(dq);
