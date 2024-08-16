@@ -4,7 +4,14 @@ SRC_DIR = src
 BUILD_DIR = build
 INCLUDE_DIR = src
 
-SRCS = $(shell find "$(SRC_DIR)" -name '*.c')
+SRCS = src/main.c
+SRCS += src/sort/sort.c src/sort/simplify.c src/sort/radix_sort.c src/sort/sort5.c src/sort/sort3.c src/sort/sort2.c src/sort/move_top_element.c
+SRCS += src/array/contains_duplicates.c src/array/array_is_sorted.c src/array/index_of.c src/array/array_sort.c
+SRCS += src/output/output_operation_list.c
+SRCS += src/deque/deque_find_min.c src/deque/deque_is_sorted.c src/deque/deque_pop.c src/deque/deque_size.c src/deque/list_new.c src/deque/deque_clear.c src/deque/deque_new.c src/deque/deque_sort.c src/deque/deque_push.c src/deque/deque_peek.c src/deque/deque_append.c src/deque/deque_find_max.c src/deque/deque_deep_copy.c src/deque/deque_rotate.c
+SRCS += src/load/load_stacks_from_string.c src/load/checked_atoi.c src/load/checked_atou.c src/load/load_stacks_from_strings.c src/load/load_stacks.c src/load/optionals.c
+SRCS += src/stack/stack_push.c src/stack/stack_rotate.c src/stack/stack_rrotate.c src/stack/stack_swap.c
+SRCS += src/error/die.c src/error/error_repr.c
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
