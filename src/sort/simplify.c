@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:29:20 by poss              #+#    #+#             */
-/*   Updated: 2024/08/13 23:29:21 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/16 13:25:53 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ t_error	simplify_verify(t_int_deque *dq)
 		return (ERROR_OOM);
 	sort_array(sorted_data, dq->sz);
 	if (sorted_array_contains_duplicates(sorted_data, dq->sz))
-		return (free(sorted_data), ERROR_DUPLICATES);
+	{
+		free(sorted_data);
+		return (ERROR_DUPLICATES);
+	}
 	err = simplify(dq, sorted_data);
 	free(sorted_data);
 	return (err);
