@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 20:21:47 by poss              #+#    #+#             */
-/*   Updated: 2024/08/15 20:33:41 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/16 11:51:32 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ static t_error	reverse_rotate_n_times(size_t n, t_stacks *stacks,
 t_error	move_top_element(t_stacks *stacks, t_int_deque *ops_out)
 {
 	int		index_of_min;
-	int		i;
 	t_error	err;
 
 	index_of_min = deque_find_min(&stacks->a);
-	i = 0;
 	if (index_of_min == -1)
 		return (ERROR_ELEMENT_NOT_FOUND);
 	if (index_of_min < (int)stacks->a.sz - index_of_min)
