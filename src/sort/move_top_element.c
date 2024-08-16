@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 20:21:47 by poss              #+#    #+#             */
-/*   Updated: 2024/08/16 11:51:32 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/16 11:56:54 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ t_error	move_top_element(t_stacks *stacks, t_int_deque *ops_out)
 	}
 	else
 	{
-		err = reverse_rotate_n_times(index_of_min, stacks, ops_out);
+		err = reverse_rotate_n_times((int)stacks->a.sz - index_of_min, stacks,
+				ops_out);
 		if (err != NO_ERROR)
 			return (err);
 	}
