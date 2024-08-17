@@ -8,3 +8,4 @@ local*
 *.a
 **/exec*
 push_swap
+valgrind*
