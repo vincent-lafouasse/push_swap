@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:30:54 by poss              #+#    #+#             */
-/*   Updated: 2024/08/16 13:23:59 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/17 13:24:39 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,17 @@ t_error	load_stacks_from_string(const char *numbers, t_stacks *out)
 
 static void	free_string_array(char **strs)
 {
+	int i;
+
 	if (!strs)
 		return ;
-	while (*strs)
+	i = 0;
+	while (strs[i])
 	{
-		free(*strs);
-		strs++;
+		free(strs[i]);
+		i++;
 	}
+	free(strs);
 }
 
 static int	string_array_len(const char **strs)
