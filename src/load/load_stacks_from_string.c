@@ -45,7 +45,7 @@ t_error	load_stacks_from_string(const char *numbers, t_stacks *out)
 
 static void	free_string_array(char **strs)
 {
-	int i;
+	int	i;
 
 	if (!strs)
 		return ;
