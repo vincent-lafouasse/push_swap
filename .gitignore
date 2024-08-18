@@ -3,6 +3,8 @@ build/
 .cache
 Testing
 target
+input_maker
+checker*
 
 local*
 *.a
