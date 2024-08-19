@@ -6,4 +6,4 @@ echo "$NUMBERS"
 echo "Number of operations:"
 ./push_swap $NUMBERS | wc -l
 
-./push_swap $NUMBERS | ./checker_Mac $NUMBERS
+./push_swap $NUMBERS | ./checker_linux $NUMBERS
