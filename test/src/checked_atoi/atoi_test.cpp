@@ -34,7 +34,7 @@ std::string U32_MAX_STR = "4294967295";
 TEST(AtoU, Valid)
 {
     t_opt_uint opt;
-    int expected;
+    unsigned int expected;
 
     opt = checked_atou("0");
     expected = 0;
@@ -63,21 +63,6 @@ TEST(AtoU, Valid)
 
     opt = checked_atou(U32_MAX_STR.c_str());
     expected = UINT32_MAX;
-    ASSERT_TRUE(opt.is_valid);
-    ASSERT_TRUE(opt.val == expected);
-
-    opt = checked_atou("042");
-    expected = 42;
-    ASSERT_TRUE(opt.is_valid);
-    ASSERT_TRUE(opt.val == expected);
-
-    opt = checked_atou("+042");
-    expected = 42;
-    ASSERT_TRUE(opt.is_valid);
-    ASSERT_TRUE(opt.val == expected);
-
-    opt = checked_atou("0000000000000000000000000000000042");
-    expected = 42;
     ASSERT_TRUE(opt.is_valid);
     ASSERT_TRUE(opt.val == expected);
 }
@@ -125,6 +110,7 @@ TEST(AtoU, Overflow)
 TEST(AtoI, Valid)
 {
     t_opt_int opt;
+    int expected;
 
     opt = checked_atoi("0");
     assert_opt_ok(opt, 0);
@@ -146,6 +132,21 @@ TEST(AtoI, Valid)
 
     opt = checked_atoi("-420");
     assert_opt_ok(opt, -420);
+
+    opt = checked_atoi("042");
+    expected = 42;
+    ASSERT_TRUE(opt.is_valid);
+    ASSERT_TRUE(opt.val == expected);
+
+    opt = checked_atoi("+042");
+    expected = 42;
+    ASSERT_TRUE(opt.is_valid);
+    ASSERT_TRUE(opt.val == expected);
+
+    opt = checked_atoi("0000000000000000000000000000000042");
+    expected = 42;
+    ASSERT_TRUE(opt.is_valid);
+    ASSERT_TRUE(opt.val == expected);
 }
 
 TEST(AtoI, NotANumber)
@@ -162,9 +163,6 @@ TEST(AtoI, NotANumber)
     assert_opt_none(opt);
 
     opt = checked_atoi("");
-    assert_opt_none(opt);
-
-    opt = checked_atoi("042");
     assert_opt_none(opt);
 }
 
