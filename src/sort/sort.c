@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:29:12 by poss              #+#    #+#             */
-/*   Updated: 2024/08/15 20:46:02 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/19 13:49:59 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_error	sort(t_stacks *stacks, t_int_deque *ops_out)
 		return (sort2(stacks, ops_out));
 	if (stacks->a.sz == 3)
 		return (sort3(stacks, ops_out));
-	if (stacks->a.sz <= 5)
+	if (stacks->a.sz <= 10)
 		return (sort5(stacks, ops_out));
 	return (radix_sort(stacks, ops_out));
 }
