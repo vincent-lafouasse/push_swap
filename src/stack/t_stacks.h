@@ -6,13 +6,14 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 16:03:19 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/08/13 23:27:29 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/19 13:36:39 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef T_STACKS_H
+# define T_STACKS_H
 
-#include "deque/t_int_deque.h"
+# include "deque/t_int_deque.h"
 
 typedef struct s_stacks	t_stacks;
 struct					s_stacks
@@ -51,3 +52,5 @@ void					rotate_both(t_stacks *stacks);
 void					rrotate_a(t_stacks *stacks);
 void					rrotate_b(t_stacks *stacks);
 void					rrotate_both(t_stacks *stacks);
+
+#endif

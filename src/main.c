@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 23:31:19 by poss              #+#    #+#             */
-/*   Updated: 2024/08/16 13:18:13 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/19 13:35:41 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "sort/sort.h"
 #include "stack/t_stacks.h"
 
-#define VERBOSE true
+#define VERBOSE 1
 
 static void	clear(t_stacks *stacks, t_int_deque *operations);
 static void	clear_and_die(t_stacks *stacks, t_int_deque *operations,

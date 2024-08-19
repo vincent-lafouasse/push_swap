@@ -6,14 +6,15 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 15:59:22 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/08/15 20:40:04 by poss             ###   ########.fr       */
+/*   Updated: 2024/08/19 13:36:09 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef T_INT_DEQUE_H
+# define T_INT_DEQUE_H
 
-#include "libft/types.h"
-#include <stdbool.h>
+# include "libft/types.h"
+# include <stdbool.h>
 
 typedef struct s_int_list	t_int_list;
 struct						s_int_list
@@ -56,3 +57,5 @@ t_i32						*deque_copy_into_array(const t_int_deque dq);
 int							deque_find_min(const t_int_deque *dq);
 int							deque_find_max(const t_int_deque *dq);
 void						deque_append(t_int_deque *dst, t_int_deque *src);
+
+#endif
